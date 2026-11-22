@@ -1449,7 +1449,7 @@ const FACTIONS = [
     ],
     geasesAndLaws: `Bound by Lady Rebecca's Perpetual Duel-Lock—the legal shield protecting both Golden and Storm Courts from Crimson invasion—and Lette Hirthal's strict instruction on Fae grammar and the Mote Royal.`,
     hiddenAllegiances: `Despite ancient Storm Court xenophobia stemming from the Great Red Death (~6000 BCE), Archdemon Ruinica (Rue) operates The Red Room inside Queen Tara's St. Martial club while retaining deep romantic history with Tess and holding a soul claim on Sapphorce scientist Vanessa Hoff.`,
-    keyFigures: [`crystal`, `rebecca`, `rue-chloe`, `lette-hirthal`, `lilly-caine`, `al-malediction`, `starling-romano`],
+    keyFigures: [`crystal`, `rebecca`, `rue`, `tempora-vectis`, `lette-hirthal`, `lilly-caine`, `al-malediction`, `starling-romano`],
     hubPos: { x: 760, y: 120 }
   },
   {
@@ -1512,7 +1512,7 @@ const CHARACTERS = [
       `<strong>Pragmatic Admiral Discipline:</strong> Combines 130+ subjective years of naval command with Earth-born military redundancy (off-world data mirrors in New Zealand and Nunavut).`
     ],
     geas: `Upon re-attaching Bailetaraan to the Loom of Fate, Tara assumed 10,000 years of Taranis's accumulated metaphysical debt. Threadkeeper General Brigid Morgan holds the Cold Iron Crown with an absolute mandate to execute Tara via an Iron Court if Taranis ever takes over. Tara also bound MDNA under a direct Fae geas for Project Thunderstone and regularly invokes Fae Hospitality Laws at the House of Tess.`,
-    family: [`meghan`, `kayleigh`, `hex`, `taranis`, `lilly-caine`, `paxil-zap`, `obelisk-gold`, `tessa-murphy`, `brigid`, `friday`, `calynn`, `shaylee`, `gondul`, `keraunie`, `jasmine-tull`, `genivive`, `maren-vale`, `billi-666`, `crystal`, `rue-chloe`, `lette-hirthal`, `starling-romano`, `kari`, `souma`, `kalica`, `rose-wolfsbane`],
+    family: [`meghan`, `kayleigh`, `hex`, `taranis`, `lilly-caine`, `paxil-zap`, `obelisk-gold`, `tessa-murphy`, `brigid`, `friday`, `calynn`, `shaylee`, `gondul`, `keraunie`, `jasmine-tull`, `genivive`, `maren-vale`, `billi-666`, `crystal`, `rue`, `lette-hirthal`, `starling-romano`, `kari`, `souma`, `kalica`, `rose-wolfsbane`],
     hidden: `During her high-risk memory dive at the Mystic Ascendancy embassy to locate the Arx Spira, Tara inadvertently contracted the dormant Taranis mnemotic virus. Rather than succumbing, she and Crystal Ball-Graves engineered the infection into a golden-crystal honeypot—capturing airgapped Crimson King payloads and Court of Nav coordinates when the Iron Vanguard closed in.`,
     relPos: { dx: 0, dy: -85 }
   },
@@ -1849,7 +1849,7 @@ const CHARACTERS = [
       `<strong>Nanite Nervous System:</strong> Grants optical/electronic stealth, direct radio-frequency interception, and elite martial arts mastery.`
     ],
     geas: `Bound by lifelong godmother devotion to Tess and relentless blood rivalry against Shroom Spider of The Remnant.`,
-    family: [`tara`, `paxil-zap`, `maren-vale`, `pentest`, `rue-chloe`],
+    family: [`tara`, `paxil-zap`, `maren-vale`, `pentest`, `rue`],
     hidden: `Suffered terminal myelin degeneration of her biological nanites during a targeted technomagnetic ambush at Kallisti Wharf—leaving her with a projected survival window of under two weeks while nobody fully knows her true original name.`,
     relPos: { dx: 0, dy: -75 }
   },
@@ -1945,7 +1945,7 @@ const CHARACTERS = [
       `<strong>Subatomic Plasma & Healing:</strong> Excites subatomic particles into lethal plasma fireballs while enjoying innate thermal immunity and instant psychokinetic cellular repair.`
     ],
     geas: `Mentorship under Rue Masters left an indelible metaphysical bond governing her infernal energy signature.`,
-    family: [`paxil-zap`, `rue-chloe`],
+    family: [`paxil-zap`, `rue`],
     hidden: `Biometric scans register a faint infernal aura: Vanessa Hoff's soul is actively claimed by Archdemon Ruinica (Rue).`,
     relPos: { dx: 55, dy: 75 }
   },
@@ -2304,23 +2304,42 @@ const CHARACTERS = [
     relPos: { dx: 70, dy: -25 }
   },
   {
-    id: `rue-chloe`,
-    name: `Rue (Archdemon Ruinica) & Chloe (Tempora Vectis)`,
-    aliases: `Susurri Diabolique · The Red Room Power Couple`,
+    id: `rue`,
+    name: `Rue (Archdemon Ruinica)`,
+    aliases: `Susurri Diabolique · Rue Masters`,
     faction: `golden-court`,
-    role: `Information Architect & Temporal Enclave Managers`,
-    lineage: `6,000-Year-Old Succubus Queen & Gold-Skinned Temporal Mage`,
+    role: `Information Architect — Co-Manager of The Red Room`,
+    lineage: `6,000-Year-Old Succubus Queen`,
     status: `Operating The Red Room inside House of Tess`,
-    signature: `Infernal Deception · Immersion Therapy · Temporal Restraints`,
+    signature: `Infernal Deception · Immersion Therapy · The Hunger`,
     geasTag: `Great Red Death & Soul Claims`,
-    profile: `Rue—celebrated hero of the ancient Great Red Death (~6000 BCE)—became Tess LaCoell's closest Earthside friend and co-founded the St. Martial sanctuary, famously staging the intervention that pulled Tess out of her toxic relationship with Lilly Caine. Runs The Red Room enclave alongside her partner Chloe.`,
+    profile: `Rue—celebrated hero of the ancient Great Red Death (~6000 BCE)—became Tess LaCoell's closest Earthside friend and co-founded the St. Martial sanctuary, famously staging the intervention that pulled Tess out of her toxic relationship with Lilly Caine. Runs The Red Room enclave alongside her partner Chloe, the temporal mage Tempora Vectis.`,
     powers: [
-      `<strong>Bio-Temporal Conditioning:</strong> Rue's "Hunger" and information architecture paired with Chloe's gold-glowing skin, topaz eyes, cybernetics, and temporal physical restraints.`
+      `<strong>The Hunger & Information Architecture:</strong> Rue's "Hunger" and information architecture.`
     ],
     geas: `Rue bears the ancient Storm-Infernal animosity of the Great Red Death (when Taranis's human-harvesting threatened infernal food sources), yet stands loyally inside Tess's warded club.`,
-    family: [`tara`, `hawtness`, `obelisk-gold`, `jennifer-tull`, `souma`],
+    family: [`tara`, `hawtness`, `obelisk-gold`, `jennifer-tull`, `souma`, `tempora-vectis`],
     hidden: `Tess realized too late that Rue was "The One That Got Away." Meanwhile, Rue holds a direct soul claim over Sapphorce biochemist Vanessa Hoff and previously manipulated Relicte (Jennifer Tull).`,
     relPos: { dx: 65, dy: 55 }
+  },
+  {
+    id: `tempora-vectis`,
+    name: `Chloe (Tempora Vectis)`,
+    aliases: `Tempora Vectis`,
+    faction: `golden-court`,
+    role: `Temporal Enclave Manager — Co-Manager of The Red Room`,
+    lineage: `Gold-Skinned Temporal Mage`,
+    status: `Operating The Red Room inside House of Tess`,
+    signature: `Temporal Restraints · Cybernetics`,
+    geasTag: `Bound to The Red Room`,
+    profile: `Chloe — Tempora Vectis — is the gold-skinned temporal mage who runs The Red Room enclave inside the House of Tess alongside her partner Rue, the Archdemon Ruinica. Where Rue works in hungers and contracts, Chloe works in time itself.`,
+    powers: [
+      `<strong>Temporal Restraints:</strong> Gold-glowing skin, topaz eyes, and cybernetics in service of temporal physical restraints.`
+    ],
+    geas: `Chloe keeps The Red Room under the House of Tess's wards: inside the enclave, her temporal restraints are law, and no guest is given up to anyone — infernal, fae, or otherwise.`,
+    family: [`rue`],
+    hidden: ``,
+    relPos: { dx: 115, dy: 25 }
   },
   {
     id: `lette-hirthal`,
@@ -2417,7 +2436,7 @@ const CHARACTERS = [
       `<strong>Psionic Discharge:</strong> Under enough pressure her shielded psionics overload and POP — a blast that blacks out every psi-sensitive within a thousand yards.`
     ],
     geas: `Jennifer was the Red Queen's asset before she was ever Rue's daughter, and the old Conclave mutual-aid pact still answers her SOS. Against both stands Rue's claim: ancient pacts made Jennifer's soul hers to collect from the moment the audition began — a claim Jennifer has spent years, and a Faerie Stone, refusing.`,
-    family: [`jasmine-tull`, `rue-chloe`],
+    family: [`jasmine-tull`, `rue`],
     hidden: `The stone that shields her from Rue is a Cloch na Feola Goidte, a Stone of Stolen Flesh, and it is eating her away. What Jennifer leaves out when she tells the Egypt story: she leaked Penumbra's location herself, to lure Jasmine and the Zaps into the Moon Cult's and Arachnos's hands. Rue, for her part, is genuinely torn — rehearsing how to kill her own daughter while trying to convince herself to let go.`,
     relPos: { dx: -50, dy: 60 }
   }
@@ -2461,7 +2480,7 @@ const CHARACTERS = [
       `<strong>Godmaking's Edge:</strong> She offered the goblin chieftess Jianx the possibility of a long-lived child, and Jianx accepted her help.`
     ],
     geas: `Souma's errands run on Dream-logic and older kinship: sent by Masaku, guest of Rue, consort of the Storm Queen — and the Dreamlands keep what she brings into them.`,
-    family: [`tara`, `kayleigh`, `rue-chloe`, `aros-avalan`],
+    family: [`tara`, `kayleigh`, `rue`, `aros-avalan`],
     hidden: `Tara first assumed Rue had sent her; Souma denied it flatly — Rue's sibling, not her agent, and Rue may not even know she came. Only Tara and Souma know how the Relicte matter was meant to end: a snatch into the Dreamlands, and a method described only in a whisper.`,
     relPos: { dx: -60, dy: -70 }
   },
@@ -2890,7 +2909,7 @@ const LOOM_LINKS = [
   { source: `paxil-zap`, target: `penny-zap`, type: `family`, label: `Trill-Like Warshade Symbiosis` },
   { source: `paxil-zap`, target: `jasmine-tull`, type: `family`, label: `Adoptive Mother → Daughter` },
   { source: `jasmine-tull`, target: `jennifer-tull`, type: `family`, label: `Twin Sisters` },
-  { source: `rue-chloe`, target: `jennifer-tull`, type: `family`, label: `Mother by Transformation → Daughter` },
+  { source: `rue`, target: `jennifer-tull`, type: `family`, label: `Mother by Transformation → Daughter` },
   { source: `ailis`, target: `mick-miller`, type: `family`, label: `20-Year Port Oakes Guardian Bond` },
 
   // Historical Geases & Fae Law (brass)
@@ -2914,14 +2933,14 @@ const LOOM_LINKS = [
   { source: `hex`, target: `silas-thorne`, type: `allegiance`, label: `Forensic Signature & Disavowal Leverage` },
   { source: `silas-thorne`, target: `caelen`, type: `allegiance`, label: `Stolen Blood-Sigils & Cauterization` },
   { source: `genivive`, target: `paxil-zap`, type: `allegiance`, label: `Remnant-Backed Assassination` },
-  { source: `rue-chloe`, target: `hawtness`, type: `allegiance`, label: `Archdemon Ruinica Soul Claim` },
+  { source: `rue`, target: `hawtness`, type: `allegiance`, label: `Archdemon Ruinica Soul Claim` },
   { source: `lilly-caine`, target: `tara`, type: `allegiance`, label: `Alternate-Timeline Reset Contingency` },
   { source: `al-malediction`, target: `hex`, type: `allegiance`, label: `Arx Spira Mentorship` }
 ,
   // Batch intake — 2026-11-22
   { source: `tara`, target: `souma`, type: `family`, label: `Consort — the Lord of Dreams` },
   { source: `souma`, target: `kayleigh`, type: `family`, label: `Sire → Daughter` },
-  { source: `rue-chloe`, target: `souma`, type: `family`, label: `Siblings` },
+  { source: `rue`, target: `souma`, type: `family`, label: `Siblings` },
   { source: `souma`, target: `aros-avalan`, type: `family`, label: `Parent → Child` },
   { source: `tara`, target: `kalica`, type: `family`, label: `Adopted Sisters` },
   { source: `tara`, target: `rose-wolfsbane`, type: `family`, label: `Adopted Sisters` },
@@ -2930,7 +2949,8 @@ const LOOM_LINKS = [
   { source: `kayleigh`, target: `amber-mimura`, type: `family`, label: `Sisters of the Dream` },
   { source: `calynn`, target: `elowyn-silverleaf`, type: `family`, label: `Lovers` },
   { source: `alyriel-silverpine`, target: `lothial-aldethenderra`, type: `allegiance`, label: `Fellow Exiles · Associates` }
-];
+,
+  { source: `rue`, target: `tempora-vectis`, type: `family`, label: `Partners — The Red Room` }];
 
 // =========================================================================
 // STATE & INITIALIZATION
