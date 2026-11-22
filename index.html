@@ -969,6 +969,20 @@ td.mono-cell {
   .tl-text { opacity: 0.92; line-height: 1.55; }
   .tl-link { color: var(--primary); font-weight: 600; text-decoration: underline dotted; text-underline-offset: 3px; cursor: pointer; }
   .tl-link:hover { filter: brightness(1.3); }
+  /* Tabbed layout — Map / Factions / Chronicle */
+  .ww-tabbar { display: flex; gap: 10px; flex-wrap: wrap; margin: 18px 0 16px; }
+  .ww-tab { appearance: none; border: 1px solid var(--brass-border); background: var(--surface-container); color: inherit; font: inherit; font-weight: 700; letter-spacing: 0.05em; padding: 10px 22px; border-radius: 999px; cursor: pointer; box-shadow: var(--panel-highlight); }
+  .ww-tab:hover { filter: brightness(1.2); }
+  .ww-tab[aria-selected="true"] { background: var(--primary); color: #141122; border-color: var(--primary); }
+  .tab-grid { display: grid; grid-template-columns: minmax(0, 1fr) 400px; gap: 18px; align-items: start; }
+  .tab-main { min-width: 0; }
+  .tab-main > * { margin-bottom: 18px; }
+  .tab-side { position: sticky; top: 14px; min-width: 0; }
+  .tab-side .inspector-panel { margin: 0; }
+  @media (max-width: 1080px) {
+    .tab-grid { grid-template-columns: minmax(0, 1fr); }
+    .tab-side { position: static; }
+  }
 </style>
 </head>
 <body>
@@ -3852,9 +3866,81 @@ document.addEventListener('click', (e) => {
   e.preventDefault();
   selectEntity(a.dataset.kind, a.dataset.id);
   const panel = document.getElementById('inspector-panel');
-  if (panel) panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  if (panel && panel.scrollIntoView) panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
 });
 renderTimeline();
+</script>
+
+<script>
+// Tabbed layout: reorganises the existing sections into Map / Factions / Chronicle
+// pages at runtime, with the single inspector panel docked beside each page.
+(function () {
+  const main = document.querySelector('main');
+  if (!main) return;
+  const pick = (sel) => document.querySelector(sel);
+  const groups = {
+    map: [pick('.controls-panel'), pick('.loom-panel')],
+    factions: [pick('section[aria-label="Key Factions Directory"]'), pick('section[aria-label="Operative Registry Table"]'), pick('.laws-grid')],
+    timeline: [pick('section[aria-label="Chronicle of the Woven World"]')]
+  };
+  const inspector = document.getElementById('inspector-panel');
+  if (!inspector || !groups.map[1]) return;
+
+  const tabbar = document.createElement('div');
+  tabbar.className = 'ww-tabbar';
+  tabbar.setAttribute('role', 'tablist');
+  tabbar.setAttribute('aria-label', 'Atlas views');
+  const labels = { map: 'The Map', factions: 'Factions', timeline: 'Timeline' };
+  const pages = {};
+  const buttons = {};
+  Object.keys(groups).forEach((key) => {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'ww-tab';
+    btn.id = 'ww-tab-' + key;
+    btn.setAttribute('role', 'tab');
+    btn.setAttribute('aria-selected', 'false');
+    btn.setAttribute('aria-controls', 'ww-page-' + key);
+    btn.textContent = labels[key];
+    btn.addEventListener('click', () => switchTab(key, true));
+    tabbar.appendChild(btn);
+    buttons[key] = btn;
+
+    const page = document.createElement('div');
+    page.className = 'ww-tab-page';
+    page.id = 'ww-page-' + key;
+    page.setAttribute('role', 'tabpanel');
+    page.setAttribute('aria-labelledby', 'ww-tab-' + key);
+    const grid = document.createElement('div');
+    grid.className = 'tab-grid';
+    const mainCol = document.createElement('div');
+    mainCol.className = 'tab-main';
+    const sideCol = document.createElement('div');
+    sideCol.className = 'tab-side';
+    groups[key].forEach((node) => { if (node) mainCol.appendChild(node); });
+    grid.appendChild(mainCol);
+    grid.appendChild(sideCol);
+    page.appendChild(grid);
+    page.hidden = true;
+    pages[key] = { page, sideCol };
+  });
+
+  main.parentNode.insertBefore(tabbar, main);
+  Object.values(pages).forEach(({ page }) => main.parentNode.insertBefore(page, main));
+  main.remove();
+
+  function switchTab(key, pushHash) {
+    Object.entries(pages).forEach(([k, v]) => {
+      v.page.hidden = k !== key;
+      buttons[k].setAttribute('aria-selected', k === key ? 'true' : 'false');
+    });
+    pages[key].sideCol.appendChild(inspector);
+    if (pushHash) { try { history.replaceState(null, '', '#' + key); } catch (e) {} }
+  }
+  window.switchTab = switchTab;
+  const start = ['map', 'factions', 'timeline'].includes((location.hash || '').slice(1)) ? location.hash.slice(1) : 'map';
+  switchTab(start, false);
+})();
 </script>
 
 </body>
