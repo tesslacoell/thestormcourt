@@ -2719,6 +2719,13 @@ function renderInspector() {
     `;
   }).join(``);
 
+  const portraitHtml = (typeof PORTRAITS !== `undefined` && PORTRAITS[ch.id] && PORTRAITS[ch.id].img)
+    ? `<div class="dossier-section">
+      <h3 class="dossier-section-title">Portrait</h3>
+      <img src="${PORTRAITS[ch.id].img}" alt="${ch.name}" style="width:100%;border-radius:10px;display:block;">
+    </div>`
+    : ``;
+
   container.innerHTML = `
     <div class="inspector-header">
       <div class="inspector-badges">
@@ -2765,6 +2772,8 @@ function renderInspector() {
       <h3 class="dossier-section-title is-coral">Hidden Allegiances &amp; Classified Intel</h3>
       <div class="hidden-box">${ch.hidden}</div>
     </div>
+
+    ${portraitHtml}
 
     <div class="dossier-section">
       <h3 class="dossier-section-title is-mint">Family Connections &amp; Key Kin</h3>
