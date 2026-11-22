@@ -983,6 +983,10 @@ td.mono-cell {
     .tab-grid { grid-template-columns: minmax(0, 1fr); }
     .tab-side .inspector-panel { position: static; height: auto; max-height: 780px; }
   }
+  #ww-page-factions .tab-main, #ww-page-timeline .tab-main { height: calc(100vh - 28px); overflow-y: auto; }
+  @media (max-width: 1080px) {
+    #ww-page-factions .tab-main, #ww-page-timeline .tab-main { height: auto; overflow: visible; }
+  }
 </style>
 </head>
 <body>
