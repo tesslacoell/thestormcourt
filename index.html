@@ -1376,6 +1376,26 @@ const FACTIONS = [
     hiddenAllegiances: `Despite ancient Storm Court xenophobia stemming from the Great Red Death (~6000 BCE), Archdemon Ruinica (Rue) operates The Red Room inside Queen Tara's St. Martial club while retaining deep romantic history with Tess and holding a soul claim on Sapphorce scientist Vanessa Hoff.`,
     keyFigures: [`crystal`, `rebecca`, `rue-chloe`, `lette-hirthal`, `lilly-caine`, `al-malediction`, `starling-romano`],
     hubPos: { x: 760, y: 120 }
+  },
+  {
+    id: `conclave`,
+    name: `The Conclave`,
+    shortName: `The Conclave`,
+    weave: `Violet & Crimson Shadow`,
+    governance: `Syndicate of Origin Wings · Hands-Off Autocrat (Doctor Pain)`,
+    origin: `Primal Earth · Firavel's, Mercy Island`,
+    status: `Fallen · Cause Unknown — Mutual-Aid Pacts Still Honoured`,
+    summary: `A criminal syndicate built from sub-organizations, each raised on one of the Origins of power, and led — at a deliberate, hands-off distance — by Doctor Pain, called Nikola. Its operations ran out of Firavel's, a club in the middle of Mercy Island, above a buried complex of telemat hubs and monitored channels. The Red Court was its intelligence wing: the Spears, its action arm under Jeni Winters, and the Shield under Goldenlock, both answering to the Red Queen — first Argiope, and after her death Sylvia Seer, the Praetorian mirror who carries Argiope's memories alongside her own. The Moon Cult was its Magic wing, led by Ramona, host of the Shadowrender; the Violet Syndicate its Natural wing. The Conclave fell — when, and to what, no record says.`,
+    powersAndTech: [
+      `The telemat network: a teleport matrix beneath Firavel's, red-symbol modules, and hubs later used in the Arx Spira affair`,
+      `Conclave communicators and monitored channels, with cyphers known to only a handful of members`,
+      `Stealth submarine extraction and portal-network operations, as run in the Penumbra affair`,
+      `Cut-out discipline: operations structured so that only the Red Court could ever be implicated`
+    ],
+    geasesAndLaws: `Bound by a mutual-aid pact its surviving members still consider in force — an SOS sent in the old Red Court cypher is answered to this day, years after the fall. Against that mercy stood the write-off policy: a captured member was cut loose, and the syndicate's first law was its own deniability.`,
+    hiddenAllegiances: `Doctor Pain let each wing run itself, and the wings kept their own counsel. The Red Queen ran a double agent inside Arachnos counterintelligence, and Rue strong-armed her own way in as a Red Court operative — a Queen of Hell protecting her friends and family from inside the syndicate, for whom crime was never an obstacle.`,
+    keyFigures: [`genivive`, `jennifer-tull`],
+    hubPos: { x: 650, y: 415 }
   }
 ];
 
@@ -1754,7 +1774,7 @@ const CHARACTERS = [
       `<strong>Organic Tactical Computer:</strong> Mutant brain calculates structural vulnerabilities, server thermal shielding, and shifting combat variables instantaneously.`
     ],
     geas: `Carries unresolved familial trauma over her lost sister Connie Royale / Jennifer Tull (Relicte), who seeks a desperate cure from Taranis inside the Arx Spira.`,
-    family: [`paxil-zap`, `sierra-zap`, `tara`, `penny-zap`, `pentest`, `sarafem-zap`],
+    family: [`paxil-zap`, `sierra-zap`, `tara`, `penny-zap`, `pentest`, `sarafem-zap`, `jennifer-tull`],
     hidden: `Strategically pairs unpredictable kinetic brawler Cambione with autistic precision-hacker Pentest specifically to stress-test and refine both operatives for upcoming Council and Remnant wars.`,
     relPos: { dx: 75, dy: -45 }
   },
@@ -2204,7 +2224,7 @@ const CHARACTERS = [
       `<strong>Bio-Temporal Conditioning:</strong> Rue's "Hunger" and information architecture paired with Chloe's gold-glowing skin, topaz eyes, cybernetics, and temporal physical restraints.`
     ],
     geas: `Rue bears the ancient Storm-Infernal animosity of the Great Red Death (when Taranis's human-harvesting threatened infernal food sources), yet stands loyally inside Tess's warded club.`,
-    family: [`tara`, `hawtness`, `obelisk-gold`],
+    family: [`tara`, `hawtness`, `obelisk-gold`, `jennifer-tull`],
     hidden: `Tess realized too late that Rue was "The One That Got Away." Meanwhile, Rue holds a direct soul claim over Sapphorce biochemist Vanessa Hoff and previously manipulated Relicte (Jennifer Tull).`,
     relPos: { dx: 65, dy: 55 }
   },
@@ -2285,6 +2305,27 @@ const CHARACTERS = [
     family: [`tara`, `kayleigh`],
     hidden: `The neutrality is not passivity. After sheltering Sophie Farmer and the girls taken by Dougie and Nettie's ring, Starling set the Romanos to watching Loli Pop's referral business. The house remembers who hunts children — and so does she.`,
     relPos: { dx: 100, dy: 90 }
+  },
+  {
+    id: `jennifer-tull`,
+    name: `Jennifer Tull ("Relicte")`,
+    aliases: `Connie (Constance Royale) · Nessa`,
+    faction: `conclave`,
+    role: `Arachnos Widow — Counterintelligence · The Red Queen's Double Agent`,
+    lineage: `Human (Tull Mutation) · Remade Succubus by Transformation`,
+    status: `Missing — Escaped to Bailetaraan · Fugitive from Rue`,
+    signature: `Segmented Parallel-Processing Mind · Precognitive Calculation · Psionic Discharge`,
+    geasTag: `The Red Queen's Asset · Rue's Daughter by Transformation`,
+    profile: `Jasmine Tull's twin, orphaned in the Praetorian War and raised by Arachnos into a Night Widow working counterintelligence — while serving, all along, as the Red Queen's double agent inside it. When Pax defected she took Jasmine and left Jennifer behind, spending Ghost Widow's single boon without ever knowing there were two children; Jennifer never forgave the Zap family for the estrangement that followed. She reverse-honeypotted the Archdemon Rue — and Rue, angry at being played and admiring in equal measure, collected the infernal penalty: she remade Jennifer as a succubus, her daughter by transformation. But the Tull mind is segmented and parallel-processing, and the turning was never made to rewrite a brain whole: the original Jennifer survived inside Relicte, and shortly after her escape she slipped silently through Tess's portal to Bailetaraan, where she became the focus of the faerie death story.`,
+    powers: [
+      `<strong>Parallel Cognition:</strong> A segmented brain running simultaneous threads — real-time tactical computation with seconds of foresight, and pure mathematics run as telepathy-noise. A partition Rue's transformation could not overwrite.`,
+      `<strong>Relicte:</strong> The succubus remaking — horns, tail, fledgling wings, golden cat-iris eyes like her mother's, heightened senses, and a control of sensation that cuts both ways.`,
+      `<strong>Psionic Discharge:</strong> Under enough pressure her shielded psionics overload and POP — a blast that blacks out every psi-sensitive within a thousand yards.`
+    ],
+    geas: `Jennifer was the Red Queen's asset before she was ever Rue's daughter, and the old Conclave mutual-aid pact still answers her SOS. Against both stands Rue's claim: ancient pacts made Jennifer's soul hers to collect from the moment the audition began — a claim Jennifer has spent years, and a Faerie Stone, refusing.`,
+    family: [`jasmine-tull`, `rue-chloe`],
+    hidden: `The stone that shields her from Rue is a Cloch na Feola Goidte, a Stone of Stolen Flesh, and it is eating her away. What Jennifer leaves out when she tells the Egypt story: she leaked Penumbra's location herself, to lure Jasmine and the Zaps into the Moon Cult's and Arachnos's hands. Rue, for her part, is genuinely torn — rehearsing how to kill her own daughter while trying to convince herself to let go.`,
+    relPos: { dx: -50, dy: 60 }
   }
 ];
 
@@ -2301,6 +2342,8 @@ const LOOM_LINKS = [
   { source: `paxil-zap`, target: `meghan`, type: `family`, label: `Maternal Cousins` },
   { source: `paxil-zap`, target: `penny-zap`, type: `family`, label: `Trill-Like Warshade Symbiosis` },
   { source: `paxil-zap`, target: `jasmine-tull`, type: `family`, label: `Adoptive Mother → Daughter` },
+  { source: `jasmine-tull`, target: `jennifer-tull`, type: `family`, label: `Twin Sisters` },
+  { source: `rue-chloe`, target: `jennifer-tull`, type: `family`, label: `Mother by Transformation → Daughter` },
   { source: `ailis`, target: `mick-miller`, type: `family`, label: `20-Year Port Oakes Guardian Bond` },
 
   // Historical Geases & Fae Law (brass)
