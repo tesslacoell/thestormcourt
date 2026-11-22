@@ -966,7 +966,7 @@ td.mono-cell {
         <h1 class="title">The <em>Woven World</em></h1>
         <div class="deck-brass">Multiversal Faction, Lineage &amp; Geas Cartography // Canonical Atlas</div>
         <p class="hero-lede">
-          Interactive intelligence dossier mapping the nine powers of the Woven World — the Storm Court, the fallen Conclave, the House of Monaco and other independent enclaves among them. Select any faction hub, operative node, or table entry to inspect powersets, binding geases, bloodline echoes, and hidden allegiances.
+          Interactive intelligence dossier mapping the ten powers of the Woven World — the Storm Court, the fallen Conclave, the House of Monaco and other independent enclaves among them. Select any faction hub, operative node, or table entry to inspect powersets, binding geases, bloodline echoes, and hidden allegiances.
         </p>
       </div>
       <div class="epoch-readout">
@@ -1394,8 +1394,27 @@ const FACTIONS = [
     ],
     geasesAndLaws: `Bound by a mutual-aid pact its surviving members still consider in force — an SOS sent in the old Red Court cypher is answered to this day, years after the fall. Against that mercy stood the write-off policy: a captured member was cut loose, and the syndicate's first law was its own deniability.`,
     hiddenAllegiances: `Doctor Pain let each wing run itself, and the wings kept their own counsel. The Red Queen ran a double agent inside Arachnos counterintelligence, and Rue strong-armed her own way in as a Red Court operative — a Queen of Hell protecting her friends and family from inside the syndicate, for whom crime was never an obstacle.`,
-    keyFigures: [`genivive`, `jennifer-tull`],
+    keyFigures: [`genivive`, `jennifer-tull`, `ramona-diaz`],
     hubPos: { x: 650, y: 415 }
+  }
+,
+  {
+    id: `volcano-court`,
+    name: `The Volcano Court`,
+    shortName: `Volcano Court`,
+    weave: `Ember Orange & Obsidian Black`,
+    governance: `Monarchy — the Memory Stone Succession`,
+    origin: `The Ka'anapele · Gift of Pele`,
+    status: `Deposed Queen · A Successor's Rule Unsettled by Assassination`,
+    summary: `The court of the Ka'anapele, fire fae who hold their power as a direct gift of the volcano goddess Pele. Its Queens are crowned with a stone that carries the memories and knowledge of all past Queens — and of Pele herself — and each names her successor early, so the line is never left to chance. Queen Keahi's brief reign tried to erase the court's class barriers; deposed within the year, she left reforms that outlived her rule. The court stands apart from the Cold War's powers — for now.`,
+    powersAndTech: [
+      `Pele-gifted fire fae power, direct from the volcano goddess`,
+      `The crown memory stone — memories and knowledge of all past Queens, and of Pele herself`
+    ],
+    geasesAndLaws: `A Queen names her own successor soon after her accession; the succession is the court's first law, and the memory stone makes every Queen answerable to all who wore it before her.`,
+    hiddenAllegiances: `Keahi's reforms continue in secret under her successor, who plays the compliant puppet for the nobles while quietly enacting them.`,
+    keyFigures: [`keahi`],
+    hubPos: { x: 655, y: 600 }
   }
 ];
 
@@ -1418,7 +1437,7 @@ const CHARACTERS = [
       `<strong>Pragmatic Admiral Discipline:</strong> Combines 130+ subjective years of naval command with Earth-born military redundancy (off-world data mirrors in New Zealand and Nunavut).`
     ],
     geas: `Upon re-attaching Bailetaraan to the Loom of Fate, Tara assumed 10,000 years of Taranis's accumulated metaphysical debt. Threadkeeper General Brigid Morgan holds the Cold Iron Crown with an absolute mandate to execute Tara via an Iron Court if Taranis ever takes over. Tara also bound MDNA under a direct Fae geas for Project Thunderstone and regularly invokes Fae Hospitality Laws at the House of Tess.`,
-    family: [`meghan`, `kayleigh`, `hex`, `taranis`, `lilly-caine`, `paxil-zap`, `obelisk-gold`, `tessa-murphy`, `brigid`, `friday`, `calynn`, `shaylee`, `gondul`, `keraunie`, `jasmine-tull`, `genivive`, `maren-vale`, `billi-666`, `crystal`, `rue-chloe`, `lette-hirthal`, `starling-romano`, `kari`],
+    family: [`meghan`, `kayleigh`, `hex`, `taranis`, `lilly-caine`, `paxil-zap`, `obelisk-gold`, `tessa-murphy`, `brigid`, `friday`, `calynn`, `shaylee`, `gondul`, `keraunie`, `jasmine-tull`, `genivive`, `maren-vale`, `billi-666`, `crystal`, `rue-chloe`, `lette-hirthal`, `starling-romano`, `kari`, `souma`, `kalica`, `rose-wolfsbane`],
     hidden: `During her high-risk memory dive at the Mystic Ascendancy embassy to locate the Arx Spira, Tara inadvertently contracted the dormant Taranis mnemotic virus. Rather than succumbing, she and Crystal Ball-Graves engineered the infection into a golden-crystal honeypot—capturing airgapped Crimson King payloads and Court of Nav coordinates when the Iron Vanguard closed in.`,
     relPos: { dx: 0, dy: -85 }
   },
@@ -1459,7 +1478,7 @@ const CHARACTERS = [
       `<strong>Atmospheric Disruption:</strong> Disoriented Brigid's Cold Iron Vanguard atop the House of Tess with mesmerizing harmonic waves.`
     ],
     geas: `Because Kayleigh's voice ("Song Upon the Wind") carries the literal weight of Fae Law, casual verbal promises she speaks can accidentally bind targets into unbreakable geases.`,
-    family: [`tara`, `meghan`, `keraunie`, `rebecca`, `friday`, `al-malediction`, `hex`, `taranis`, `starling-romano`],
+    family: [`tara`, `meghan`, `keraunie`, `rebecca`, `friday`, `al-malediction`, `hex`, `taranis`, `starling-romano`, `souma`, `rei`, `bangs`, `amber-mimura`],
     hidden: `Because she exists out of order in time across all ages, a future version of Kayleigh warned of the Arx Spira crisis and the need to save Al (Malediction). Unbeknownst to her, Taranis explicitly demanded from the Crimson King that Kayleigh be delivered to him alive as "the ultimate evolution of his design."`,
     relPos: { dx: -85, dy: -65 }
   },
@@ -1559,7 +1578,7 @@ const CHARACTERS = [
       `<strong>Sovereign Resonance:</strong> Directly tethered to the Storm Monarch's core metaphysical stability.`
     ],
     geas: `Because she is a Sovereign Fragment, any physical or metaphysical mutilation inflicted upon Calynn directly wounds Queen Tara's essence and stability.`,
-    family: [`tara`, `taranis`, `ailis`],
+    family: [`tara`, `taranis`, `ailis`, `elowyn-silverleaf`],
     hidden: `Pulled from the Gish Canal in Kings Row and logged into the PPD morgue as "Jane Doe (COD: Evisceration, Exossation)"—her wings torn out at the roots while alive using extreme vacuum-friction cauterization, with a bruised-purple Celestial Shard lodged in her mud-caked seams.`,
     relPos: { dx: -55, dy: 75 }
   },
@@ -2224,7 +2243,7 @@ const CHARACTERS = [
       `<strong>Bio-Temporal Conditioning:</strong> Rue's "Hunger" and information architecture paired with Chloe's gold-glowing skin, topaz eyes, cybernetics, and temporal physical restraints.`
     ],
     geas: `Rue bears the ancient Storm-Infernal animosity of the Great Red Death (when Taranis's human-harvesting threatened infernal food sources), yet stands loyally inside Tess's warded club.`,
-    family: [`tara`, `hawtness`, `obelisk-gold`, `jennifer-tull`],
+    family: [`tara`, `hawtness`, `obelisk-gold`, `jennifer-tull`, `souma`],
     hidden: `Tess realized too late that Rue was "The One That Got Away." Meanwhile, Rue holds a direct soul claim over Sapphorce biochemist Vanessa Hoff and previously manipulated Relicte (Jennifer Tull).`,
     relPos: { dx: 65, dy: 55 }
   },
@@ -2327,6 +2346,459 @@ const CHARACTERS = [
     hidden: `The stone that shields her from Rue is a Cloch na Feola Goidte, a Stone of Stolen Flesh, and it is eating her away. What Jennifer leaves out when she tells the Egypt story: she leaked Penumbra's location herself, to lure Jasmine and the Zaps into the Moon Cult's and Arachnos's hands. Rue, for her part, is genuinely torn — rehearsing how to kill her own daughter while trying to convince herself to let go.`,
     relPos: { dx: -50, dy: 60 }
   }
+,
+  // BATCH INTAKE — 2026-11-22 (chat-logs dossiers, reviewed & ruled by Tess)
+  {
+    id: `bangs`,
+    name: `Dr. Barbara "Bangs" Heisenberg`,
+    aliases: `Barb · Hurricane Bangs`,
+    faction: `golden-court`,
+    role: `Physicist & Master Markswoman · The Storm Queen's Human Investigator · Godmother of Princess Kayleigh`,
+    lineage: `Human · Empowered by Tara`,
+    status: `Professor · Trinity College Dublin · Engaged, Living in Dublin · Hunting What Kills the Lowborn Fae`,
+    signature: `Twin Pistols · Supernatural Reflexes · Non-Einsteinian Energy Physics`,
+    geasTag: `Bound by the Power Tara Gave Her`,
+    profile: `A Harvard prodigy who took her MIT physics doctorate at twenty-two, Barbara Heisenberg became a master-level markswoman and "retired" mercenary before a terrorist attack on her laboratory made her vanish from her old life. On Primal Earth she taught at the University of Paragon City and later held an adjunct post at Trinity College Dublin, but her true commission comes from Queen Tara, who poured a portion of her own power into her human friend — "Hurricane Bangs" — and set her to hunt the succubus killing lowborn fae. Her stolen doctoral science, weaponized by Longbow to cage Lilly Caine's halo, she answered with a jammer and disruptor of her own design. She studies magic under Crystal Ball-Graves. She is engaged to a woman in Dublin and has moved there to teach at Trinity College — and she stands as one of Princess Kayleigh's two godmothers, alongside Rei.`,
+    powers: [
+      `<strong>Twin Pistols:</strong> Master-level markswoman with supernatural reflexes, fast enough to work a battlefield as an investigator and a gunfighter at once.`,
+      `<strong>Hurricane Bangs:</strong> A literal portion of Tara's storm power, given to her on Primal Earth; Tara still feels the fragment she gave away, across worlds. Since the Dreamgate Reset, Bangs has described the fragment to others as something she *inherited*; it was a gift, and Tess corrected the record when she came back (Tess's ruling, 2026-11-22).`,
+      `<strong>Applied Dimensional Physics:</strong> Her thesis work on dimensional boundary state-change underlies Longbow's halo-containment field — and her countermeasures, including a wristwatch jammer that cancels capture beams and a phone-based disruptor.`
+    ],
+    geas: `The power Tara gave her is a loan with the Queen's name on it: Bangs hunts the Court's killer under royal commission, and the fragment of storm in her answers to its source.`,
+    family: [`kayleigh`],
+    hidden: `Bangs left Bailetaraan after messing something up "for the best," and still owes — and is owed — an explanation from Tess. She also took the USB drives of Tess's recorded sessions from the old Afterhours location when she left Primal Earth, and Tara's new-allies database, Jeni Winters, and the Conclave all kept files on her.`,
+    relPos: { dx: 70, dy: 40 }
+  },
+  {
+    id: `souma`,
+    name: `Souma`,
+    aliases: `The Lord of Dreams · Kayleigh's Dream Mother`,
+    faction: `storm-court`,
+    role: `Lord of Dreams · Envoy of the Dreaming · Consort of the Storm Queen`,
+    lineage: `Second-Generation Divinity · Of the Dreamlands`,
+    status: `Sheltered at the Palace · Sire of Princess Kayleigh`,
+    signature: `Dream-Walking · The Belonging Aura · Winged`,
+    geasTag: `Keeper of the Dreamlands' Doors`,
+    profile: `Souma came to Bailetaraan through a break in reality at the gates, an envoy of Tara's cousin Masaku, hunting a memory castle stolen out of the Dreamlands — which proved to be Tara's own restored memories, reclaimed by their owner. Tara sheltered Souma under the palace roof, demons and all, against the court's misgivings. Souma is the Lord of Dreams — second-generation divinity out of Primal Earth, who may appear male or female — and with Tara, a goddess of the Storm, is sire to Princess Kayleigh, who was born in the Dreamlands and, by Dreamlands time, has always existed there. Prolonged contact with Souma brings a passive sense of safety, comfort, and belonging.`,
+    powers: [
+      `<strong>Dream Sovereignty:</strong> A dreamwalker's command of the Dreamlands and the Dream-Wylds; she offered to take the prisoner Relicte into the Dreamlands, from which escape is effectively impossible.`,
+      `<strong>The Belonging Aura:</strong> Her presence centres a feeling of safety, comfort, and homecoming on those near her — felt even by a wary winter faerie handmaiden.`,
+      `<strong>Godmaking's Edge:</strong> She offered the goblin chieftess Jianx the possibility of a long-lived child, and Jianx accepted her help.`
+    ],
+    geas: `Souma's errands run on Dream-logic and older kinship: sent by Masaku, guest of Rue, consort of the Storm Queen — and the Dreamlands keep what she brings into them.`,
+    family: [`tara`, `kayleigh`, `rue-chloe`, `aros-avalan`],
+    hidden: `Tara first assumed Rue had sent her; Souma denied it flatly — Rue's sibling, not her agent, and Rue may not even know she came. Only Tara and Souma know how the Relicte matter was meant to end: a snatch into the Dreamlands, and a method described only in a whisper.`,
+    relPos: { dx: -60, dy: -70 }
+  },
+  {
+    id: `rei`,
+    name: `Rei ("Aunt Rei")`,
+    aliases: `DJ Reimix · X-Rei`,
+    faction: `storm-court`,
+    role: `Tess's Best Friend · Galactic Pop Star · Godmother of Princess Kayleigh`,
+    lineage: `Kheldian (Kheld)`,
+    status: `Famous Across the Galaxy · House of Tess Circle · A Link in the Future Kay Warning`,
+    signature: `Memory-Keeping · The Resonance Sample · An Old Friend's Standing`,
+    geasTag: `Holder of the Message from Fifty Years On`,
+    profile: `Rei is Tess's best friend — the two of them were DJs together in the Primal Earth music world, and in Kayleigh's own telling DJ Reimix took her on tour — and she is now a pop star famous across the Galaxy, as well as Kayleigh's godmother, "Aunt Rei." With Tess and Rue she co-owns HoT-Impulse, the organization behind Impulse, the House of Tess's sister club. When Kay was fifteen, Rei took her to a show where the girl resonated with a strength Rei had never felt from her, and Rei kept a memory sample of that night. Years later she gave Kay a copy, and Kay and Friday's decoding of it uncovered a message from a future Kay, fifty years downstream, warning against Blaspheme and the Arx Spira. Rei is also Penny Zap's friend, a veteran of the Penumbra operation's circle, and the one expected — someday — to reveal what happened to Al the last time Al fought Blaspheme.`,
+    powers: [
+      `<strong>The Resonance Sample:</strong> Rei preserved the memory of fifteen-year-old Kay's anomalous resonance intact for years, and what slept inside it was a warning from the future.`,
+      `<strong>Field Survivor:</strong> Hit earlier in 2020 by a next-generation Council quantum weapon — the same class used in the attempt on Senator Zap — and still standing, still informing, still in the room where plans are made.`
+    ],
+    geas: `Rei holds a message she does not fully understand from a Kay who has not happened yet; the keeping of it binds her into the princess's timeline whether she wills it or not.`,
+    family: [`kayleigh`],
+    hidden: `Impulse is a separate entity from Rei — the sister club to the House of Tess, run by HoT-Impulse, the organization Rei co-owns with Tess and Rue. The old Discord logs blur the two constantly (the format doesn't always allow them to be separated); they are not the same. Rei's own history before the godmother years is largely unwritten.`,
+    relPos: { dx: 55, dy: 75 }
+  },
+  {
+    id: `aros-avalan`,
+    name: `Aros Avalan`,
+    aliases: `Avalan · The Queen's Handmaiden`,
+    faction: `storm-court`,
+    role: `Handmaiden of the Storm Queen · Nursemaid to Princess Kayleigh`,
+    lineage: `Winter Faerie · Of the Mountain Winter Court`,
+    status: `In Service at the Palace · Friend as Well as Handmaiden`,
+    signature: `Ice & Snow Storm · Flight · A Tongue That Cannot Lie`,
+    geasTag: `Bound by Service — and by Truth`,
+    profile: `A winter faerie out of the mountain reaches of the faery realm — four feet seven, blue-skinned, a kind of whom few remain — Avalan was born after the Queen had already gone missing, and spent long years tending the empty castle against a return she had no reason to expect. When Tara came back, Avalan became her handmaiden, and then, at the Queen's own request, her friend: learning coffee, company, and eventually the idea of bar-dancing from Friday's advice and Kari's enthusiastic tutoring. She was woven into the royal household's heart — nursemaid to the infant Princess Kayleigh, and mother to Liza, Kayleigh's sister. She serves soldiers, travellers, and nobles with the same care, cannot tell a lie, and blushes a darker blue when caught in a truth she'd rather soften. Souma herself requested Avalan's attendance, hoping to know her.`,
+    powers: [
+      `<strong>Winter Storm:</strong> Ice and snow storm powers native to the winter part of the faery realm, with flight.`,
+      `<strong>The Unlying Tongue:</strong> Avalan cannot lie — she tells lies-in-truth with unvarnished fact, a craft she discussed at length with the illusionist Radha, and a binding her whole kind appears to carry.`
+    ],
+    geas: `Long years of service to an absent Queen made Avalan's loyalty a vow before it was ever an order; the palace's hospitality and her own truth-bound nature hold her to it still.`,
+    family: [`souma`],
+    hidden: `Avalan is mother to Liza, Kayleigh's little sister — a link between the handmaiden and the royal line that the palace record states only in passing, in another character's file. She was also the first to hear, at the gates and in the tavern, how the Court's old guard truly received the Queen's demonic guests.`,
+    relPos: { dx: -35, dy: 65 }
+  },
+  {
+    id: `rose-wolfsbane`,
+    name: `Rose Wolfsbane ("Duchess Rose")`,
+    aliases: `Thundermace · Pink Scorpion · Formerly Pink Arachnos`,
+    faction: `storm-court`,
+    role: `Former Arachnos Wolf Spider · Sapphite Institute Operative · Adopted Sister of the Storm Queen`,
+    lineage: `Human · Rogue Isles Raised`,
+    status: `Duchess of the Storm Court · Of the House of Tess · Lately of the Young Warriors`,
+    signature: `Wolf Spider Training & Armour · Systems Infiltration`,
+    geasTag: `Adopted into the Storm Queen's Family`,
+    profile: `Rose was raised in the Rogue Isles by parents who idolized Lord Recluse, and so determined to make them proud that she hacked her own name into the Arachnos system and took the Wolf Spider path as "Pink Arachnos." Orders she could not stomach soured her on the programme; she left Arachnos behind, passed through the Sapphite Institute, and was offered shelter at the House of Tess — working at the House and at Impulse to repay Tess's kindness, and fetching up, in time, in the Storm Court's own palace situation room in Wolf Spider armour. In 2021 she joined the Young Warriors, to be among people her own age. What the Isles never knew: Tara adopted her as a legal sister — Duchess Rose, called Thundermace.`,
+    powers: [
+      `<strong>Wolf Spider:</strong> Arachnos Wolf Spider training and armour, carried into every allegiance she has held since — she arrived at the Storm Court's palace in it.`,
+      `<strong>Systems Infiltration:</strong> She wrote herself into the Arachnos programme as a teenager, uninvited and undetected; the Isles' systems have never quite kept her out since.`
+    ],
+    geas: `Rose pays her debts in service — to Tess first, who sheltered her — and her adoption binds her to the Storm Queen's house as law and family both, above every uniform she has worn.`,
+    family: [`tara`],
+    hidden: `Billi 666 fetched Rose from Tess's hidden apartment during the hunt for Trish — Rose was already inside the innermost circle of trust while still, on paper, a teenage ex-Arachnos stray.`,
+    relPos: { dx: 85, dy: -55 }
+  },
+  {
+    id: `hezzik-magesmith`,
+    name: `Hezzik Magesmith`,
+    aliases: `The Forgemaster · "Heazy Fo'Sheazy" (the Queen's joke)`,
+    faction: `storm-court`,
+    role: `Forgemaster to the Royal Fae of the Storm Court`,
+    lineage: `Dwarf`,
+    status: `Historical · Master of the Palace Forge — No Longer Present in the Story`,
+    signature: `Elemental Forgecraft · Impervium Work · Clockwork Wings`,
+    geasTag: `His Work Is for Fae Blood Only`,
+    profile: `A dwarf of two hundred and forty-four years, Hezzik is Forgemaster to the Royal Fae of the Storm Court, and his work is spoken of the way other courts speak of relics: weapons and armour sought by gods, yet reserved by his own law to those of Fae blood, most of them carrying elemental magic worked into the metal. The Guard's gear passes through his forge before it passes into battle, and the Queen's own divine armour took shape there, impervium sprinkled with fairy dust piece by piece. Clockwork wings carry him about his work, a cask of his favourite ale is the surest bribe in the palace, and apprentices learn the trade at his anvil — and occasionally rob it.`,
+    powers: [
+      `<strong>The Court Forge:</strong> Inspects, repairs and makes the weapons and armour of the Royal Guard and the Queen herself, including divine armour woven with Tara's own spells to draw on her might.`,
+      `<strong>Elemental Craft:</strong> Most of his creations carry elemental magic in the metal; his commissions are sought by gods and refused to all but Fae blood.`,
+      `<strong>Clockwork Wings:</strong> A dwarf's ingenuity worn on his own back — he flies about his forge work on wings of his own making.`
+    ],
+    geas: `The forge's law is Hezzik's law: what he makes is for the Fae, and the Court's commissions — and the Queen's confidences — stay within his walls.`,
+    family: [],
+    hidden: `Friday's new flesh body is partly his handiwork, built with the Queen's. He also holds a secret commission: a warhammer forged as if for Tara herself, imbued with her power, meant for someone special to carry when she is old enough — a confidence he kept before the Queen told even Calynn she was pregnant.`,
+    relPos: { dx: -60, dy: 80 }
+  },
+  {
+    id: `delirious`,
+    name: `Delirious`,
+    aliases: `None recorded`,
+    faction: `storm-court`,
+    role: `Primal-Earth Spy of the Storm Court`,
+    lineage: `Shadow Pixie (Three-Quarter)`,
+    status: `Departed · Left After Tara Disappeared to Eorzea`,
+    signature: `Twin Glock 19s · Shadow Fae · A Talent for Listening`,
+    geasTag: `The Court's Ear`,
+    profile: `A three-quarter shadow pixie of thirty-two, Delirious stands near human height with looks no glamour could pass off as mortal, and carries a pair of Glock 19s with a pixie's cheer and a professional's ease. Reckless by reputation — "crazy" is the word her own record reaches for — she has come to Bailetaraan from Primal Earth to join the Storm Court as its spy, and she is already at work: a fixture of the tavern crowd, listening for the odd remark, the wrong name, the thing said too loudly. The Court has bought itself a creature of the shadows with a mortal world's habits, and a lover — the Fjallheim ambassador, Mayhem — to anchor her to the palace she watches for.`,
+    powers: [
+      `<strong>Shadow Fae:</strong> A shadow pixie's nature — at home in dark corners, crowds and unnoticed places, with distinctly fae looks she makes no attempt to hide.`,
+      `<strong>Twin Glock 19s:</strong> Primal-Earth firearms, carried openly and used without hesitation; a mortal world's answer in a fae court's service.`,
+      `<strong>The Listening Post:</strong> Espionage by underestimation — she gathers intelligence simply by being in the room, ears open, while louder people talk.`
+    ],
+    geas: `Delirious serves the Court as its ear in rooms it cannot enter openly; the record shows the service but no spoken oath behind it.`,
+    family: [],
+    hidden: `Very little is hidden, because very little is known: she arrived with a pair of pistols, a shadow-fae nature and a brief to listen. What she reports, and to whom besides the Court, the record does not say.`,
+    relPos: { dx: 70, dy: 95 }
+  },
+  {
+    id: `solonor-thelandira`,
+    name: `Solonor Thelandira`,
+    aliases: `Warden of Forest Island`,
+    faction: `storm-court`,
+    role: `Ranger & Warden of Forest Island · Shaylee's Investigator`,
+    lineage: `Sylvan Elf`,
+    status: `Serving · Warden of Forest Island · No Further Appearances`,
+    signature: `Longbow · Trick Arrowheads · Flute, Lyre & Pan Pipes`,
+    geasTag: `The Warden's Oath`,
+    profile: `A sylvan elf of one hundred and twenty-five years, Solonor Thelandira is the Storm Court's quiet answer to everything that walks where it should not. As Warden of Forest Island — miles of dense woodland threaded with hidden portals to the Primal — he keeps the grounds safe from roaming monsters, spies on the spies sent against the Court, and shoots whoever he is told to shoot. Shaylee uses him as her investigator in the capital, trusting his instinct over instruments; his own method is simpler: patience, high ground, and arrows that do not miss. Off duty he is a musician, at home on flute, lyre and pan pipes, and his forest runs smoothly enough that he has time to hunt greater game abroad.`,
+    powers: [
+      `<strong>The Warden's Bow:</strong> A master archer and ranger, equipped from Hezzik's forge with trick arrowheads — never-miss, exploding, splitting and flaming — for whatever the woods send at him.`,
+      `<strong>Forest Island:</strong> Wardenship of a hidden forest realm of portals, its treehouse at the centre of miles of guarded woodland; nothing crosses it uncounted.`,
+      `<strong>Counter-Espionage:</strong> He spies on spies, examines scenes the guard cannot read, and hunts by instinct where instruments fail.`
+    ],
+    geas: `The warden's oath is Solonor's whole law: the forest, the grounds and the Queen's peace, kept without question — he shoots who he is told to shoot, and asks nothing first.`,
+    family: [],
+    hidden: `His forest holds portals even the Court maps loosely, and he has used one to slip through to Paragon City on a hunt of his own choosing — studying Widows and succubi first-hand, in case the Court's enemy comes from that quarter.`,
+    relPos: { dx: -95, dy: 35 }
+  },
+  {
+    id: `brynjar-ulfgrensson`,
+    name: `Brynjar Ulfgrensson ("Mayhem")`,
+    aliases: `Mayhem · Ambassador of Fjallheim`,
+    faction: `storm-court`,
+    role: `Ambassador of Fjallheim (the Earth Court) to the Storm Court`,
+    lineage: `Half Human · Half Dwarf`,
+    status: `Departed · Left When Tess Left, at the Memory Erasure`,
+    signature: `Warhammer · Dwarven Courtesy · A Musician Between Gigs`,
+    geasTag: `Diplomatic Hospitality`,
+    profile: `Half human, half dwarf on his father's side, thirty-two years old and five foot six of opinions, Brynjar Ulfgrensson — Mayhem — is Fjallheim's ambassador to the Storm Court, dispatched from the Earth Court's mountain kingdom to Queen Tara's palace. He arrived as a musician between gigs, his last band broken up behind him, and made his mark in a tavern brawl, flattening a knife-man with his warhammer and refusing in principle to surrender his weapons to anyone. The Court has since learned his other register: courtesy in true dwarven form, down to the intricately carved stein he gifted Calynn to replace the mug she lost in the tavern fire. He is courting the shadow pixie Delirious.`,
+    powers: [
+      `<strong>Warhammer:</strong> A brawler's weapon carried as a matter of principle — ambassador or not, he does not surrender it, and the one man who tested that in a tavern fight woke up on the floor.`,
+      `<strong>The Ambassador's Standing:</strong> He speaks for Fjallheim beneath the mountain, and the Court receives him under diplomatic custom; his embassy gives a small, earth-bound kingdom a voice in Bailetaraan.`,
+      `<strong>Musician:</strong> A professional player between bands — the trade he was following before a king's errand made an ambassador of him.`
+    ],
+    geas: `Brynjar is bound both ways by his embassy: Fjallheim's charge to represent it faithfully, and the hospitality law of the court that hosts him — guest-right he has already leaned on, weapons and all.`,
+    family: [],
+    hidden: `Fjallheim has one throne — the king's: King Olaf Ragnarsson is sovereign, with Queen Njola as second (Tess's ruling, 2026-11-22). Brynjar's in-scene styling as Queen Njola's ambassador reflects her place as second on the throne, not a rival crown.`,
+    relPos: { dx: 85, dy: 70 }
+  },
+  {
+    id: `elowyn-silverleaf`,
+    name: `Elowyn Silverleaf ("Leaf")`,
+    aliases: `Silverleaf · "Leaf" · Princess / Milady (titles she hates)`,
+    faction: `storm-court`,
+    role: `Sworn Archer of the Storm Court · An Elven Lord's Daughter, Sent as an Offering`,
+    lineage: `Elf (Homeland Elven Nobility)`,
+    status: `Fate Unknown · Lover of Calynn`,
+    signature: `Bow & Blade · Extremely Keen Senses · Minor Magic`,
+    geasTag: `A True Name Held in Trust by the Queen`,
+    profile: `An elf of two hundred and seventy-three years, Silverleaf — "Leaf," to anyone wise — is an archer and fighter of the first rank, with minor magics, senses keener than a hound's, and a lifetime's practice at disappointing her family. Raised in a homeland where daughters are currency for alliances, she was taught to fight, took to battle in a way deemed unladylike, and ruined every marriage match arranged for her rather than be her father's property to trade. Sent at last to the Storm Court as her family's offering, she pledged her bow to Queen Tara as herself the gift — and the Queen accepted her service while refusing, pointedly, to own her. She has other ideas than obedience, and a guitar waiting in her quarters.`,
+    powers: [
+      `<strong>The Bow:</strong> A skilled archer and fighter, trained from girlhood and battle-tested in a way her homeland never intended when it taught her.`,
+      `<strong>Keen Senses & Minor Magic:</strong> Senses of an acuity her own people remark on, backed by minor magical abilities — she hears the Court's business whether it wants her to or not.`
+    ],
+    geas: `Silverleaf swore to protect the Storm Queen and do her no harm, and sealed the oath by giving Tara her true name — Elowyn — a power over her that the Queen has in turn refused to use as a leash. At Court she is called Leaf, and only Leaf; the name Elowyn is not spoken.`,
+    family: [`calynn`],
+    hidden: `She is trusted further than most outsiders so recently arrived: Calynn — who trusts few — takes her counsel on the succubus hunt and keeps her company above the palace. Her homeland still considers her a traded asset; her service at the Storm Court is the first thing she has ever chosen. Silverleaf and Calynn ended up lovers — and what happened to Silverleaf is unknown. The loss undid Calynn: her depression, her leaving the Storm Court for Primal Earth, and her death at Silas's hand in the Cold War all trace back to it (Tess's ruling, 2026-11-22).`,
+    relPos: { dx: -40, dy: 110 }
+  },
+  {
+    id: `jianx`,
+    name: `Jianx ("Sheklac")`,
+    aliases: `Chieftess of the United Goblin Tribes · The First Goblin Hero`,
+    faction: `storm-court`,
+    role: `Chieftess (Sheklac) of the United Goblin Tribes`,
+    lineage: `Goblin · Kheldian-Bonded`,
+    status: `Assumed Still in Parliament · No Longer in the Story`,
+    signature: `Green Light of the Bond · Troll Form · A Century of Tribal Paperwork`,
+    geasTag: `The Banner She United`,
+    profile: `A goblin of two hundred and thirty-five years, Jianx was born the weakest of her tribe and rose to lead it at fourteen on strategy alone. A meeting with a light she cannot remember left her bonded to a Kheldian of light, wrapped in controlled green radiance and able to take a towering "troll form" — though she prefers the light itself. As the first goblin hero she did what no chieftain had: defeated every rival, united the goblin tribes under one banner, and drew troll and monster tribes in behind them. The tribes that followed her to the Storm Court are hers still, and she pushes schooling and "civilization" on them against the pushback of her own people — while the Court that hosts her still calls her kind savage.`,
+    powers: [
+      `<strong>The Kheldian Bond:</strong> A symbiotic "one of light," bonded to her many seasons ago, whose controlled green light she wields as her primary power — the gift that made a weak-born goblin a hero.`,
+      `<strong>Troll Form:</strong> The great shape the bond lets her take when light is not enough; she prefers the light, and reaches for the form rarely.`,
+      `<strong>Chieftess:</strong> She holds the tribes by the only law they respect — she defeated every chieftain who stood against her — and commands their scouts and soldiers, offered to the Queen's service.`
+    ],
+    geas: `Jianx's word is the tribes' law, and her people's oath runs through her: trained goblin soldiers and scouts for the Crown, and reforms that bind her to a future her own chieftains resist. She keeps both, at the price of being obeyed for her strength rather than her reasons. Her standing is also her monument: Jianx is the main reason the lesser fae hold full citizenship rights under the new Constitution (Tess's ruling, 2026-11-22).`,
+    family: [],
+    hidden: `Her hanging goblin city is outgrowing its stone — births rising, no apex predator, and no spare skystone for a new level. And Souma has offered her the thing two centuries denied her: an heir who might live as long as she does, she who has outlived mate, friends and children. Whether anything has come of it, the record leaves open.`,
+    relPos: { dx: 55, dy: -85 }
+  },
+  {
+    id: `glitch`,
+    name: `Glitch`,
+    aliases: `None recorded`,
+    faction: `storm-court`,
+    role: `Forge Apprentice · Aspiring Hero of the Lowborn Tribes`,
+    lineage: `Goblin of the Lowborn Tribes`,
+    status: `Active — At the Storm Court, Bailetaraan`,
+    signature: `Scrap-Laser Crossbow · Regeneration · Tinker's Designs`,
+    geasTag: `Apprentice to the Forgemaster`,
+    profile: `A goblin of the lowborn tribes, four feet tall and thirty-two years old, Glitch built her signature weapon from scrap stolen out of Hezzik Magesmith's forge — a pile of parts meant to become a crossbow that inexplicably began firing lasers instead. She claims her remarkable regeneration was won in a card game with a troll. Raised on tales of the Heroes of old, she is determined to be named among them, and at the Storm Court she scribbles device designs — a music box for the tavern bar among them — insisting her making is craft, not magic, whatever her master says. Goblin rumour holds that she has found a "soft place" where one can slip between dimensions. It may be a tall tale. She hopes it is not.`,
+    powers: [
+      `<strong>Scrap-Laser:</strong> A crossbow-shaped pile of forge scrap that inexplicably fires laser bolts instead of bolts.`,
+      `<strong>Regeneration:</strong> Remarkable regenerative healing, which she claims to have won in a card game with a troll.`,
+      `<strong>Tinker's Instinct:</strong> Builds working devices from stolen scrap and scribbled designs, insisting the knack is craft, not magic.`
+    ],
+    geas: `No formal geas is recorded for her; her loyalties run to the lowborn tribes and to the master whose forge she robs. Glitch herself is one of the reasons Tara gave the lesser-born fae a voice (Tess's ruling, 2026-11-22).`,
+    family: [],
+    hidden: `The goblin rumour of her dimensional "soft place" is unverified — even the record cannot say whether she found one or invented it.`,
+    relPos: { dx: -60, dy: 80 }
+  },
+  {
+    id: `terrak-darkborn`,
+    name: `Terrak ("Darkborn")`,
+    aliases: `Darkborn`,
+    faction: `storm-court`,
+    role: `Royal Guard of the Storm Court (Posting Undecided)`,
+    lineage: `Dark Elf`,
+    status: `Active — Royal Guard · No Further Stories`,
+    signature: `Royal Guard Armour`,
+    geasTag: `Sworn to the Royal Guard`,
+    profile: `A dark elf of forty-eight years, five feet nine, Terrak Darkborn stands in the rolls of the Storm Court as a member of its Royal Guard. Almost nothing else of him survives in the record: no deeds, no words, no allegiances beyond the Guard itself — even his precise posting was left undecided by those who wrote him. What remains is the armour: the Royal Guard armour of Darkborn, recorded alongside his name when he was presented to the Court in the winter of 2020. He is, for now, a silhouette at the Queen's door — a guard whose story the archive has not yet been told.`,
+    powers: [
+      `<strong>Royal Guard Armour:</strong> The full Royal Guard panoply recorded with his presentation to the Court.`,
+      `<strong>Guard's Training:</strong> Presumed arms and drill of the Storm Court's Royal Guard — not described anywhere in the record.`
+    ],
+    geas: `Whatever oath binds the Royal Guard binds him; no personal geas is recorded.`,
+    family: [],
+    hidden: `The record holds nothing beyond his guard posting — no hidden intel exists to report.`,
+    relPos: { dx: 55, dy: -70 }
+  },
+  {
+    id: `djoran`,
+    name: `D'Joran ("Lady of Winter")`,
+    aliases: `Jordan Redgrave · Jordan DeGarver · Dr. Verona Jaeger`,
+    faction: `golden-court`,
+    role: `Lady of Winter · Assistant to the Archmage of Moncorahk · Honor Guard to the Triumvirate`,
+    lineage: `Elf (1,254 years old)`,
+    status: `Active — On the Archmage's Business at the Storm Court`,
+    signature: `Cold Magic · Casting Through Twin Navy Colt .45s · Golden Sigil Seared Into Her Soul`,
+    geasTag: `Sworn to the Temple of Moncorahk`,
+    profile: `An elf of 1,254 years, D'Joran was a spell sword and Huntress serving her Temple's will before the Carolingian Empire, hunting creatures of the Dark; older creatures still speak of a witch- and demon-hunter colder than ice and meaner than drawn steel. She is an accomplished magic user who prefers cold, and casts through her twin Navy Colt .45s, though fire and poison are also hers. Paperless and answerable to few, she walks Paragon City as Jordan Redgrave — fond of poker, cheap whiskey neat, and cold steel near her hand. At the Storm Queen's court she serves openly at last: Lady of Winter, assistant to the Archmage of Moncorahk, a golden sigil seared into her soul.`,
+    powers: [
+      `<strong>Winter's Craft:</strong> Cold magic of the first order — at the Storm Court she froze the tavern ground mid-attack and held two fire imps at swordpoint on the ice.`,
+      `<strong>Gun-Casting:</strong> Channels her spells through twin Navy Colt .45s; cold is her preference, with fire and poison also in her repertoire.`,
+      `<strong>Huntress of the Dark:</strong> A Temple spell sword from before the Carolingian Empire, sworn to hunting creatures of the Dark.`
+    ],
+    geas: `She serves the Temple of Moncorahk's will and the Archmage who sent her; the golden sigil seared into her soul is the mark of that service, produced when her authority is challenged.`,
+    family: [],
+    hidden: `She works under deep cover by default — folksy personas and false names, dropped only under pressure — and holds no official paperwork in any realm she hunts in. At the goblin Bazaar she was gathering information on the missing lowborn before she ever gave her true name.`,
+    relPos: { dx: 70, dy: 40 }
+  },
+  {
+    id: `alyriel-silverpine`,
+    name: `Alyriel Silverpine`,
+    aliases: `None recorded`,
+    faction: `storm-court`,
+    role: `Wood Elf Thief · Covert Observer on the Queen's Council`,
+    lineage: `Wood Elf (born 1780, another dimension)`,
+    status: `Stranded in Bailetaraan · In the Storm Queen's Service · History Stands — Player No Longer in the Writing Group`,
+    signature: `Hookswords · Shadowcraft · The Low-Born's Ear`,
+    geasTag: `Bound by Faerie Hospitality · Sworn to the Queen's Council`,
+    profile: `A Wood Elf thief born in 1780 in another dimension, Alyriel Silverpine lists her skills plainly: hiding, sneaking, stealing, stabbing, and gathering information. She stole culturally valuable items at home and fled through a portal, stranding herself — with Knight Captain Lothial, sent to arrest her, stranded at her side. Brought to Bailetaraan at the side of the injured Lothial, she accepted the Storm Queen's hospitality and was recruited directly to Tara's Council: to move covertly among merchants and officials, observe how they treat the low-born, and help feed, clothe, and protect them. Plans are also laid for her to work beside Chieftess Jianx, bringing education to the goblin and monster tribes.`,
+    powers: [
+      `<strong>Hookswords:</strong> Fights with paired hookswords; alongside Lothial she crippled the fir bolg Eochai at the ankles.`,
+      `<strong>Shadowcraft:</strong> Hiding, sneaking, stealing, and stabbing — the full thief's repertoire, now turned to gathering information for the Queen.`,
+      `<strong>The Low-Born's Ear:</strong> Moves unseen among merchants and officials, reporting how the powerful treat those beneath them.`
+    ],
+    geas: `She took the Storm Queen's hospitality and service in place of flight; the bounty that stood on her at home was lifted by the very paladin sent to collect it.`,
+    family: [],
+    hidden: `Her relationship with Lothial — the paladin sent to arrest her — turned intimate within days of their arrival; at home, such a match across the High Elf / Wood Elf divide would mean exile for them both.`,
+    relPos: { dx: -80, dy: 30 }
+  },
+  {
+    id: `lothial-aldethenderra`,
+    name: `Lothial Aldeth'enderra`,
+    aliases: `Knight Captain of the Paladins of Aryth Nor`,
+    faction: `storm-court`,
+    role: `High Elf Paladin · Paladin of the Storm Court`,
+    lineage: `High Elf (born 1740 by human reckoning, another dimension)`,
+    status: `Stranded in Bailetaraan · Blade Pledged to the Storm Court · History Stands — Player No Longer in the Writing Group`,
+    signature: `Paladin's Blade · Prime Conditioning · Minor Elven Healing Magics`,
+    geasTag: `Blade Pledged to Queen Tara · The Arrest Mission Abandoned`,
+    profile: `A High Elf paladin born in 1740 by human reckoning — two hundred and eighty years old, and young for his kind — Lothial Aldeth'enderra is Knight Captain of the Paladins of Aryth Nor: physically strong, in prime conditioning, with a novice's knowledge of minor Elven healing magics. He followed the thief Alyriel through a portal to arrest her and was stranded in her company; thrown and broken by the fir bolg Eochai in Croatoa, he was healed in Bailetaraan. There he formally abandoned his arrest mission, lifted her bounty, and pledged his blade as a Paladin of the Storm Court, reporting to Calynn in the Queen's guard and healer service.`,
+    powers: [
+      `<strong>Paladin's Blade:</strong> A knight captain's swordsmanship, pledged now to the Storm Court; with Alyriel he hamstrung a fir bolg giant.`,
+      `<strong>Elven Healing:</strong> Novice-level knowledge of minor Elven healing magics.`,
+      `<strong>Prime Conditioning:</strong> Strength and physical conditioning at the peak of his kind.`
+    ],
+    geas: `His oath has transferred: the arrest mission formally abandoned, his blade pledged to Queen Tara's service under the hospitality that healed him.`,
+    family: [],
+    hidden: `Lovers with Alyriel would mean exile at home under the High Elf / Wood Elf class hierarchy — a fact both of them acknowledged in Bailetaraan. The record leaves their status implicit.`,
+    relPos: { dx: -95, dy: 55 }
+  },
+  {
+    id: `amber-mimura`,
+    name: `Amber Mimura`,
+    aliases: `None recorded`,
+    faction: `storm-court`,
+    role: `Eldest of the Children of Dream`,
+    lineage: `Child of Dream · Born in the Dreamlands`,
+    status: `Unrecorded`,
+    signature: `Child-of-Dream Gifts — Nebulous, Undefined`,
+    geasTag: `None Recorded`,
+    profile: `Of Amber Mimura the record preserves almost nothing, and what it preserves is mostly a relationship: she is a Child of Dream — the older sister of the Children of Dream, the baby-boom generation born of Souma's visitation — and she was born in the Dreamlands. As a Child of Dream her powers are nebulous at best; her own bio post states them in two words: known powers, none. No deeds, no words, and no allegiances survive alongside her name; she surfaces again only years later, as images in the Dreamlands-adjacent channels, unexplained. Until those who know her speak, Amber stands in the atlas as the Dreamlands-born eldest of the Dream children at the edge of the Princess's story — present, named, and otherwise unwritten.`,
+    powers: [
+      `<strong>Nebulous Gifts:</strong> As a Child of Dream, Amber's powers are nebulous at best — never defined or displayed; her bio's "Known Powers: None" stands as the honest record.`
+    ],
+    geas: `None recorded.`,
+    family: [`kayleigh`],
+    hidden: `Almost nothing is recorded of her — she resurfaces in the Children of Dream channels years after her bio post as images only, with no accompanying text.`,
+    relPos: { dx: 40, dy: -85 }
+  },
+  {
+    id: `kalica`,
+    name: `Kalica ("Kali")`,
+    aliases: `Kali`,
+    faction: `golden-court`,
+    role: `Knight of a Fae-Serving Order · Fae-Lore Scholar`,
+    lineage: `Mortal Knight · Adopted Sister of Tara`,
+    status: `Based on Primal Earth Again · With Her Niece Gryphon · "Aunt Kali" to Kayleigh`,
+    signature: `Fae Lore · Knightly Arms · Letters by Friday's Hand`,
+    geasTag: `Uninvited, She Does Not Cross`,
+    profile: `Kalica — Kali — is a knight of an order that served the Fae in the age before The Divide split the mortal world from the immortal ones, and she remains one of the deepest living scholars of Fae kind among mortals. Tara's sister by adoption — as Rose is — she keeps her distance from the Storm Court she could claim kinship with: she will not enter the storm realm uninvited, and sends her letters by Friday's hand instead. The refusal is courtesy, not estrangement — though the family fights as families do, Tess loves her — and when Fae matters stir on Primal Earth, it is Kali the old ties draw in. The two of them became extremely close in the days when Tess worked for a short time at Joker's Wild, the popular St. Martial club on the road between Vice City and Black Mariah, and Kalica kept writing to Tara even after Tara left. Only recently has that distance closed: Kalica has moved her base of operations back to Primal Earth, bringing her niece Gryphon with her — and Kayleigh has finally met her "Aunt Kali."`,
+    powers: [
+      `<strong>Knight of the Old Service:</strong> A trained knight of the order that served the Fae before The Divide sundered the worlds.`,
+      `<strong>Fae Lore:</strong> Extremely knowledgeable about the Fae — their courts, customs and deep history — a scholar's command few mortals can match.`
+    ],
+    geas: `Bound by the old courtesies between her order and the Fae: she does not cross into the storm realm uninvited, and treats an invitation as a matter of honour.`,
+    family: [`tara`],
+    hidden: `Friday would invite her into the storm realm against Tess's wishes — the door Kali refuses to walk through uninvited may yet be opened by family.`,
+    relPos: { dx: -120, dy: 40 }
+  },
+  {
+    id: `sizzles`,
+    name: `Sizzles`,
+    aliases: `None recorded`,
+    faction: `storm-court`,
+    role: `Escaped Infernal · Arsonist · Bound Asset of the Storm Court`,
+    lineage: `Demon · Formerly of Hell's Service`,
+    status: `Bound Custody of the Storm Court · 5,000-Year Term · Canon Stands — Will Likely Never Appear Again`,
+    signature: `Hellfire · Ward-Breaking`,
+    geasTag: `Morningstar's Custody · Lightning-Marked`,
+    profile: `Sizzles is a demon of Hell's service who got out the loud way. Summoned to Paragon City by a Hellion coven, she broke their wards, killed the whole coven, and went looking for a drink; her lover Crackles traced her signature to Atlas Park, and the pair fought through a Circle of Thorns cave and an unwarded pipe route into the wider world. In the Storm realm the imps' arson of the Red Scroll tavern ended their freedom: Morningstar himself left them in Queen Tara's custody for five thousand years, bound by lightning-mark tattoos, to learn tempering — or at least better aim.`,
+    powers: [
+      `<strong>Hellfire:</strong> Flame enough to fireball a tavern and block a well with fire, wielded freely and without much forethought.`,
+      `<strong>Ward-Breaker:</strong> Smashed through a break in the Hellions' summoning wards and killed the entire coven that had called her.`
+    ],
+    geas: `Bound into Queen Tara's custody for 5,000 years by Morningstar's judgement; Cal's purple-lightning binding tattoos, marked on her forearms, shock her for harmful mischief.`,
+    family: [],
+    hidden: `The pipe route she and Crackles escaped by was, by Tess's own remark on the bio post, a smuggling route — which means Dearg is smuggling.`,
+    relPos: { dx: 60, dy: 110 }
+  },
+  {
+    id: `crackles`,
+    name: `Crackles`,
+    aliases: `Mephelithiusastophelion Crackles J. Magruder III, Esq. (self-styled)`,
+    faction: `storm-court`,
+    role: `Imp · Escaped Infernal · Bound Asset of the Storm Court`,
+    lineage: `Imp · Infernal`,
+    status: `Bound Custody of the Storm Court · 5,000-Year Term · Canon Stands — Will Likely Never Appear Again`,
+    signature: `Flight · Fire · Glorious Impulse`,
+    geasTag: `Morningstar's Custody · Lightning-Marked`,
+    profile: `Crackles is an imp of four hundred and forty years, all fire and impulse, who does things first and thinks them through afterwards — if at all. He followed his lover Sizzles out of Hell's orbit to Paragon City, traced her magical signature to a restaurant in Atlas Park, and escaped with her through a Circle of Thorns cave and a smuggling pipe into the Storm realm, where the pair's burning of the Red Scroll tavern bought them five thousand years in Queen Tara's custody. He insists, emphatically and without prompting, that he has no brothers named Snap or Pop.`,
+    powers: [
+      `<strong>Flight and Fire:</strong> An imp's wings and flame, wielded on impulse and aimed afterwards.`,
+      `<strong>Signature Sense:</strong> Traced Sizzles' magical signature across Paragon City to the restaurant where she had stopped for a drink.`
+    ],
+    geas: `Bound into Queen Tara's custody for 5,000 years by Morningstar's judgement; Cal's purple-lightning binding tattoos, marked on his forearms, shock him for harmful mischief.`,
+    family: [],
+    hidden: `His full name, produced on a business card in the Storm Court's dungeon, and his claim to be an attorney, are entirely his own testimony — delivered while frozen in ice and negotiating for his life.`,
+    relPos: { dx: 95, dy: 130 }
+  },
+  {
+    id: `ramona-diaz`,
+    name: `Ramona Diaz ("Shadowrender")`,
+    aliases: `Shadowrender`,
+    faction: `conclave`,
+    role: `High Priestess of the Moon Cult · Conclave Head (Magic Wing)`,
+    lineage: `Human Host · Mefnamim (Warshade) Symbiote`,
+    status: `High Priestess of the Moon Cult · Keeper of Beni Hasan · Survived the Temple Fight`,
+    signature: `Warshade Symbiote · Moon Cult Rites · Memory Hunger`,
+    geasTag: `The Mutual-Aid Oath · Forsworn If She Yields`,
+    profile: `Ramona Diaz is the human host of Shadowrender, the ancient symbiote that was once the Egyptian god-entity Set — and neither of them remembers it. As High Priestess of the Moon Cult, the Conclave's Magic wing, she keeps the temple and its library at Beni Hasan, a head of the fallen syndicate long after its fall. Hunting the memories of Pax and the symbiote's prior hosts — memories that did not travel with the Warshade when it passed to its new host — she hijacked a portal network and held Penumbra in stasis, and failed. When Jennifer Tull's SOS came through the old channels, Ramona honoured the Conclave's mutual-aid pact and sheltered her, oath-bound even against Rue herself.`,
+    powers: [
+      `<strong>Shadowrender:</strong> Host of the Mefnamim symbiote Shadowrender — once Set of Egypt, once bonded to Felicia Zap as Shadowpax — able to wear a former host's shape and wield a Warshade's dark power.`,
+      `<strong>Moon Cult High Priestess:</strong> Commands the Beni Hasan temple, its library, wards and garrison; keeper of the Conclave's Egyptian ground since the fall.`,
+      `<strong>Plane-Slingshot:</strong> Her spellwork bent a path toward the Arx Spira, sending Jennifer Tull across the angular plane by way of the Stone Fae.`
+    ],
+    geas: `Bound by the Conclave's mutual-aid pact, which she honours even years after the syndicate's fall — she refused Rue's bargain for Jennifer Tull because, having invoked the oath, she would be forsworn if she yielded.`,
+    family: [],
+    hidden: `Penumbra ultimately holds the memories Ramona hunted — they surfaced in 2026 — and Shadowrender still does not know it was Set, or that its lover Sareva was another being entirely. Shadowrender also sought a way to reverse succubus transformation, calling it valuable for a "mission," and wants Rue's kind eradicated from Earth. The mission was **Jennifer Tull's** — but Ramona took the debt of the Conclave agreement, so it became hers as well (Tess's ruling, 2026-11-22).`,
+    relPos: { dx: -60, dy: 90 }
+  },
+  {
+    id: `keahi`,
+    name: `Queen Keahi`,
+    aliases: `Queen of the Court of Fire`,
+    faction: `volcano-court`,
+    role: `Queen of the Volcano Court (Deposed)`,
+    lineage: `Fire Fae · Queen of the Ka'anapele`,
+    status: `Deposed · Whereabouts Unknown`,
+    signature: `Pele's Fire · The Crown Stone · The Open Library`,
+    geasTag: `The Succession · The Crown Remembers`,
+    profile: `Keahi was Queen of the Volcano Court, the Ka'anapele, whose fire fae hold their power as a direct gift of the volcano goddess Pele. Like every Queen of her court, she was crowned with the stone that carries the memories and knowledge of all past Queens — and of Pele herself — and like every Queen she named her own successor soon after her accession. In a reign of just under a year she set out to erase her court's class barriers, opening a palace library to fire fae, goblin, elf and pixie alike, and choosing a common Guardsman as her Consort over her nobles' fury. Deposed by 2026, she leaves a stranger legacy: her successor wears the crown as the nobles' puppet while secretly carrying Keahi's reforms forward.`,
+    powers: [
+      `<strong>Fire of Pele:</strong> The Court of Fire's power, granted directly by the volcano goddess Pele and worn in volcanic silk, obsidian beads and glowing tā.`,
+      `<strong>The Crown Stone:</strong> At her crowning, the stone in the Royal Crown infused her with the memories and knowledge of every past Queen — and of Pele herself — a painful inheritance that usually fells the new Queen where she stands.`
+    ],
+    geas: `Bound by her court's succession law: every Queen names her own successor shortly after taking the crown, and the Crown Stone passes the gathered memories of all Queens to the next.`,
+    family: [],
+    hidden: `Her deposition is recorded only in the 2026 court profile; who moved against her, and where she is now, the record does not say. Her reforms continue in secret under her successor, who plays the compliant puppet for the nobles while quietly enacting them. **Keanu has since been assassinated** (Tess, 2026-11-22) — Keanu is unnamed in the record; whether he is the successor or the Guardsman Consort needs Tess's confirmation before this is written into the profile proper.`,
+    relPos: { dx: 140, dy: -60 }
+  }
 ];
 
 // Cross-node relationship edges for the Loom of Fate Visualizer
@@ -2370,6 +2842,19 @@ const LOOM_LINKS = [
   { source: `rue-chloe`, target: `hawtness`, type: `allegiance`, label: `Archdemon Ruinica Soul Claim` },
   { source: `lilly-caine`, target: `tara`, type: `allegiance`, label: `Alternate-Timeline Reset Contingency` },
   { source: `al-malediction`, target: `hex`, type: `allegiance`, label: `Arx Spira Mentorship` }
+,
+  // Batch intake — 2026-11-22
+  { source: `tara`, target: `souma`, type: `family`, label: `Consort — the Lord of Dreams` },
+  { source: `souma`, target: `kayleigh`, type: `family`, label: `Sire → Daughter` },
+  { source: `rue-chloe`, target: `souma`, type: `family`, label: `Siblings` },
+  { source: `souma`, target: `aros-avalan`, type: `family`, label: `Parent → Child` },
+  { source: `tara`, target: `kalica`, type: `family`, label: `Adopted Sisters` },
+  { source: `tara`, target: `rose-wolfsbane`, type: `family`, label: `Adopted Sisters` },
+  { source: `kayleigh`, target: `rei`, type: `family`, label: `Godmother` },
+  { source: `kayleigh`, target: `bangs`, type: `family`, label: `Godmother` },
+  { source: `kayleigh`, target: `amber-mimura`, type: `family`, label: `Sisters of the Dream` },
+  { source: `calynn`, target: `elowyn-silverleaf`, type: `family`, label: `Lovers` },
+  { source: `alyriel-silverpine`, target: `lothial-aldethenderra`, type: `allegiance`, label: `Fellow Exiles · Associates` }
 ];
 
 // =========================================================================
