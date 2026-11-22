@@ -969,23 +969,21 @@ td.mono-cell {
   .tl-text { opacity: 0.92; line-height: 1.55; }
   .tl-link { color: var(--primary); font-weight: 600; text-decoration: underline dotted; text-underline-offset: 3px; cursor: pointer; }
   .tl-link:hover { filter: brightness(1.3); }
-  /* Tabbed layout — Map / Factions / Chronicle */
-  .ww-tabbar { display: flex; gap: 10px; flex-wrap: wrap; margin: 18px 0 16px; }
+  /* Layout — tabbed atlas with a permanent inspector column */
+  .ww-layout { display: grid; grid-template-columns: minmax(0, 1fr) 400px; gap: 18px; align-items: stretch; margin-top: 18px; }
+  .ww-main { min-width: 0; }
+  .ww-main > * { margin-bottom: 18px; }
+  .ww-side { position: relative; min-width: 0; }
+  .ww-side .inspector-panel { margin: 0; position: sticky; top: 14px; height: calc(100vh - 28px); max-height: calc(100vh - 28px); }
+  .ww-tabbar { display: flex; gap: 10px; flex-wrap: wrap; margin: 0 0 16px; }
   .ww-tab { appearance: none; border: 1px solid var(--brass-border); background: var(--surface-container); color: inherit; font: inherit; font-weight: 700; letter-spacing: 0.05em; padding: 10px 22px; border-radius: 999px; cursor: pointer; box-shadow: var(--panel-highlight); }
   .ww-tab:hover { filter: brightness(1.2); }
   .ww-tab[aria-selected="true"] { background: var(--primary); color: #141122; border-color: var(--primary); }
-  .tab-grid { display: grid; grid-template-columns: minmax(0, 1fr) 400px; gap: 18px; align-items: stretch; }
-  .tab-main { min-width: 0; }
-  .tab-main > * { margin-bottom: 18px; }
-  .tab-side { position: relative; min-width: 0; }
-  .tab-side .inspector-panel { margin: 0; position: sticky; top: 14px; height: calc(100vh - 28px); max-height: 100%; }
+  #ww-page-factions, #ww-page-timeline { height: calc(100vh - 28px); overflow-y: auto; }
   @media (max-width: 1080px) {
-    .tab-grid { grid-template-columns: minmax(0, 1fr); }
-    .tab-side .inspector-panel { position: static; height: auto; max-height: 780px; }
-  }
-  #ww-page-factions .tab-main, #ww-page-timeline .tab-main { height: calc(100vh - 28px); overflow-y: auto; }
-  @media (max-width: 1080px) {
-    #ww-page-factions .tab-main, #ww-page-timeline .tab-main { height: auto; overflow: visible; }
+    .ww-layout { grid-template-columns: minmax(0, 1fr); }
+    .ww-side .inspector-panel { position: static; height: auto; max-height: 780px; }
+    #ww-page-factions, #ww-page-timeline { height: auto; overflow: visible; }
   }
 </style>
 </head>
@@ -3876,24 +3874,37 @@ renderTimeline();
 </script>
 
 <script>
-// Tabbed layout: reorganises the existing sections into Map / Factions / Chronicle
-// pages at runtime, with the single inspector panel docked beside each page.
+// Layout: two-column atlas. Left column holds the tab bar, the tab pages
+// (Map / Factions / Timeline) and, below them, the Registry and Fae Law
+// sections. Right column holds the single inspector, full height.
 (function () {
   const main = document.querySelector('main');
   if (!main) return;
   const pick = (sel) => document.querySelector(sel);
   const groups = {
     map: [pick('.controls-panel'), pick('.loom-panel')],
-    factions: [pick('section[aria-label="Key Factions Directory"]'), pick('section[aria-label="Operative Registry Table"]'), pick('.laws-grid')],
+    factions: [pick('section[aria-label="Key Factions Directory"]')],
     timeline: [pick('section[aria-label="Chronicle of the Woven World"]')]
   };
+  const bottom = [pick('section[aria-label="Operative Registry Table"]'), pick('.laws-grid')];
   const inspector = document.getElementById('inspector-panel');
   if (!inspector || !groups.map[1]) return;
+
+  const layout = document.createElement('div');
+  layout.className = 'ww-layout';
+  const mainCol = document.createElement('div');
+  mainCol.className = 'ww-main';
+  const sideCol = document.createElement('div');
+  sideCol.className = 'ww-side';
+  sideCol.appendChild(inspector);
+  layout.appendChild(mainCol);
+  layout.appendChild(sideCol);
 
   const tabbar = document.createElement('div');
   tabbar.className = 'ww-tabbar';
   tabbar.setAttribute('role', 'tablist');
   tabbar.setAttribute('aria-label', 'Atlas views');
+  mainCol.appendChild(tabbar);
   const labels = { map: 'The Map', factions: 'Factions', timeline: 'Timeline' };
   const pages = {};
   const buttons = {};
@@ -3915,30 +3926,21 @@ renderTimeline();
     page.id = 'ww-page-' + key;
     page.setAttribute('role', 'tabpanel');
     page.setAttribute('aria-labelledby', 'ww-tab-' + key);
-    const grid = document.createElement('div');
-    grid.className = 'tab-grid';
-    const mainCol = document.createElement('div');
-    mainCol.className = 'tab-main';
-    const sideCol = document.createElement('div');
-    sideCol.className = 'tab-side';
-    groups[key].forEach((node) => { if (node) mainCol.appendChild(node); });
-    grid.appendChild(mainCol);
-    grid.appendChild(sideCol);
-    page.appendChild(grid);
+    groups[key].forEach((node) => { if (node) page.appendChild(node); });
     page.hidden = true;
-    pages[key] = { page, sideCol };
+    mainCol.appendChild(page);
+    pages[key] = page;
   });
+  bottom.forEach((node) => { if (node) mainCol.appendChild(node); });
 
-  main.parentNode.insertBefore(tabbar, main);
-  Object.values(pages).forEach(({ page }) => main.parentNode.insertBefore(page, main));
+  main.parentNode.insertBefore(layout, main);
   main.remove();
 
   function switchTab(key, pushHash) {
-    Object.entries(pages).forEach(([k, v]) => {
-      v.page.hidden = k !== key;
+    Object.entries(pages).forEach(([k, page]) => {
+      page.hidden = k !== key;
       buttons[k].setAttribute('aria-selected', k === key ? 'true' : 'false');
     });
-    pages[key].sideCol.appendChild(inspector);
     if (pushHash) { try { history.replaceState(null, '', '#' + key); } catch (e) {} }
   }
   window.switchTab = switchTab;
@@ -3946,6 +3948,7 @@ renderTimeline();
   switchTab(start, false);
 })();
 </script>
+
 
 </body>
 </html>
