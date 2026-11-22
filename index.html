@@ -1228,6 +1228,16 @@ const FACTIONS = [
       `High-frequency Faraday containment barriers and Shadow Shard portals`,
       `10 front-line international petty officer squad leaders (Hildr through Kara)`
     ],
+    roster: [
+      `<strong>Commanding Officer:</strong> Admiral Contessa “Tessa” Murphy — Valkyrie Brynhildr II (2020–present); founding CO Admiral Tara “Tess” LaCoell-McKinley, PhD — Valkyrie Brynhildr I (2006–2020)`,
+      `<strong>Captain, Executive Officer:</strong> Valkyrie Sigdrifa`,
+      `<strong>Commander:</strong> Valkyrie Hrist`,
+      `<strong>Lieutenants:</strong> Valkyrie Svipul (Senior); Valkyrie Geiravor (Junior Grade)`,
+      `<strong>Chief Petty Officers (Senior NCOs):</strong> Master Chief Petty Officer Gondul; Senior Chief Petty Officer Skalmold; Chief Petty Officers Herfjotur, Mist, and Skogul`,
+      `<strong>Petty Officers First Class (E-6):</strong> Hildr, Sanngridr, Geirskogul, Thrud, Randgrid, Radgrid, Kjolvar, Herja, Rota, Kara`,
+      `<strong>Petty Officers Second Class (E-5):</strong> Alvitr, Svafa, Olrun, Gunnr, Eir, Skuld, Lofn, Kára, Menja, Fenja`,
+      `<strong>Petty Officers Third Class (E-4):</strong> Astrid, Sigrun, Brynhild, Hrund, Geironul, Hjorthrimul, Skalmoe, Sveid, Goll, Randgridr, Tamfana, Thruda, Mistrim, Herjan, Skeggold`
+    ],
     geasesAndLaws: `Operates under UN/Vanguard military discipline rather than Fae Law—yet Queen Tara bound former Praetorian Adjuster MDNA under a direct Fae geas to board Valhalla off-the-record and disarm Mother Mayhem's fatal psionic trigger inside Tessa Murphy's brain.`,
     hiddenAllegiances: `Unconscious Archetypal Continuity: neither Lady Grey, Dark Watcher, nor Admiral Murphy knows that Vanguard is the direct modern iteration of Thread Warden Elara's First Vanguard at the Iron Throne (~10,000 BCE). Separately, Vanguard Actual and the FBSA concealed Tessa's survival from her daughter Keraunie.`,
     keyFigures: [`tessa-murphy`, `gondul`, `keraunie`, `mdna`, `jenni-adair`, `lady-grey`],
@@ -2652,6 +2662,12 @@ function renderInspector() {
         <h3 class="dossier-section-title">Infrastructure &amp; Capabilities</h3>
         <ul class="dossier-list">${powersList}</ul>
       </div>
+
+      ${fac.roster ? `
+      <div class="dossier-section">
+        <h3 class="dossier-section-title">Membership &amp; Ranks</h3>
+        <ul class="dossier-list">${fac.roster.map(r => `<li>${r}</li>`).join(``)}</ul>
+      </div>` : ``}
 
       <div class="dossier-section">
         <h3 class="dossier-section-title is-brass">Historical Geases &amp; Legal Bindings</h3>
