@@ -2979,6 +2979,7 @@ document.addEventListener(`DOMContentLoaded`, function() {
   color:#b9a7ff;margin-bottom:6px}
 .pw-body ul{margin:0;padding-left:18px;line-height:1.55}
 .pw-none{opacity:.75;font-style:italic}
+.pw-bio{line-height:1.6;margin:0;opacity:.95}
 .pw-close{position:absolute;top:8px;right:12px;background:none;border:none;color:#eee;
   font-size:1.7rem;line-height:1;cursor:pointer;z-index:2}
 .pw-close:hover{color:#f3d98b}
@@ -2995,6 +2996,8 @@ document.addEventListener(`DOMContentLoaded`, function() {
       <div class="pw-alias-title">Also known as</div>
       <ul id="pw-aliases"></ul>
       <p class="pw-none" id="pw-none" hidden>No portrait on file for this character yet.</p>
+      <div class="pw-alias-title" id="pw-bio-title" style="margin-top:16px">Bio</div>
+      <p class="pw-bio" id="pw-bio"></p>
     </div>
   </div>
 </div>
@@ -3013,6 +3016,12 @@ function openPortrait(id){
   if (p && p.names) names = p.names;
   else if (ch && ch.aliases) names = ch.aliases.split(` · `);
   names.forEach(n => { const li = document.createElement(`li`); li.textContent = n; ul.appendChild(li); });
+  const bioEl = document.getElementById(`pw-bio`);
+  const bioTitle = document.getElementById(`pw-bio-title`);
+  const bioText = ch ? (ch.profile || ``) : ``;
+  bioEl.textContent = bioText;
+  bioEl.hidden = !bioText;
+  bioTitle.hidden = !bioText;
   const none = document.getElementById(`pw-none`);
   if (p && p.img) { img.src = p.img; img.style.display = ``; img.alt = ch ? ch.name : id; none.hidden = true; }
   else { img.removeAttribute(`src`); img.style.display = `none`; none.hidden = false; }
