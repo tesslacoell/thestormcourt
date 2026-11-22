@@ -955,6 +955,20 @@ td.mono-cell {
     scroll-behavior: auto !important;
   }
 }
+  /* Chronicle of the Woven World — vertical timeline */
+  .chronicle-spine { position: relative; margin: 12px 0 0 10px; padding-left: 36px; border-left: 2px solid var(--brass-border); }
+  .tl-era { position: relative; margin: 30px 0 16px; }
+  .tl-era:first-child { margin-top: 4px; }
+  .tl-era::before { content: ''; position: absolute; left: -43px; top: 5px; width: 12px; height: 12px; border-radius: 50%; background: var(--primary); box-shadow: 0 0 0 4px var(--brass-tint); }
+  .tl-era h3 { margin: 0; font-size: 1.25rem; letter-spacing: 0.04em; }
+  .tl-era-sub { opacity: 0.75; font-size: 0.9rem; margin-top: 2px; }
+  .tl-event { position: relative; background: var(--surface-container); border: 1px solid var(--brass-border); border-radius: 12px; padding: 13px 16px; margin: 0 0 12px; box-shadow: var(--panel-highlight); }
+  .tl-event::before { content: ''; position: absolute; left: -42px; top: 20px; width: 7px; height: 7px; border-radius: 50%; background: var(--surface-container-high); border: 2px solid var(--primary); }
+  .tl-date { display: block; font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--primary); margin-bottom: 3px; }
+  .tl-title { font-weight: 700; font-size: 1.02rem; margin-bottom: 3px; }
+  .tl-text { opacity: 0.92; line-height: 1.55; }
+  .tl-link { color: var(--primary); font-weight: 600; text-decoration: underline dotted; text-underline-offset: 3px; cursor: pointer; }
+  .tl-link:hover { filter: brightness(1.3); }
 </style>
 </head>
 <body>
@@ -1186,6 +1200,17 @@ td.mono-cell {
       <!-- Populated dynamically -->
     </aside>
   </main>
+  <!-- Chronicle of the Woven World -->
+  <section class="section-block" aria-label="Chronicle of the Woven World">
+    <div class="panel-header-row">
+      <div>
+        <h2 class="section-heading">Chronicle of the Woven World</h2>
+        <div class="deck-brass">Twelve thousand years on one thread — select any name to open its dossier</div>
+      </div>
+    </div>
+    <div class="chronicle-spine" id="chronicle-timeline"></div>
+  </section>
+
 
   <!-- Faction Overview Strip -->
   <section class="section-block" aria-label="Key Factions Directory">
@@ -3750,5 +3775,87 @@ selectEntity = function(kind, id){
 };
 </script>
 <!-- ===== /Portrait Window ===== -->
+<script>
+const TIMELINE = [
+  { era: `The Ancient World`, sub: `Before the seal`, events: [
+    { date: `~10,000 BCE`, title: `The Deluge`, text: `The Abrahamic War ends in flood. [[c:elara|Elara]] dies bound to the Iron Throne; her sister [[c:ailis|Ailis]] walks away from their father's house and takes the long road that leads, in time, to [[f:court-of-nav|Nav]]. On a hidden shore, [[c:taranis|Taranis]] enacts the Hermit Kingdom Protocol: Bailetaraan is cut away from the Loom of Fate, and the [[f:storm-court|Storm Court]] becomes a hermit kingdom.` },
+    { date: `~6000 BCE`, title: `The Great Red Death`, text: `[[c:rue|Rue]] — Archdemon Ruinica — walks the earth as the Great Red Death. The archdemon's long career of ruin begins in plague and fire.` },
+    { date: `~1000 BCE`, title: `The Dark Kheld in Egypt`, text: `Dark Kheld move among the mortals of Egypt. In that lineage stands Shadowrender — whom the oldest texts name Set.` }
+  ]},
+  { era: `The Long Quiet`, sub: `Bailetaraan sealed · Earth forgets`, events: [
+    { date: `c. 1986`, title: `The Children's Crusade`, text: `[[c:paxil-zap|Paxil Zap]] and her twin Joy manifest their powers at twelve and are swept into the Children's Crusade, alongside their cousin [[c:meghan|Meg]] — and a charming red fox who is, though none of them know it, the Fae King Oberon in disguise.` },
+    { date: `~1988`, title: `The Tull Twins`, text: `Jasmine and Jennifer Tull are born to an Arbiter and a Fortunata of Arachnos, in the years when Arachnos first reached toward Praetoria.` },
+    { date: `Before 1992`, title: `Joy`, text: `Joy Zap is killed on a Children's Crusade raid. [[c:paxil-zap|Paxil]] carries her twin's absence for the rest of her life.` },
+    { date: `1992`, title: `The Execution of Oberon`, text: `Learning what Oberon did to [[c:meghan|Meghan]], [[c:paxil-zap|Paxil]] executes the Fae King with a Cold Iron sword supplied by Oberon's own Thread Warden — around her eighteenth birthday. She survives the Ziggurat that follows.` },
+    { date: `1993`, title: `The Breakout`, text: `After no more than a year in the Zig, Paxil is broken out by Kalinda. A fugitive again, she makes her way to the people who will change her life: Arbiter and Fortunata Tull, and their twin daughters.` },
+    { date: `By 1995`, title: `The Tulls Are Killed`, text: `Arbiter and Fortunata Tull die in the early days of Arachnos incursions into Praetoria. Their daughters are orphaned — and Arachnos keeps one of them.` },
+    { date: `1995`, title: `The Sapphite Institute`, text: `[[c:paxil-zap|Paxil Zap]] and [[c:meghan|Dr. Meghan Murphy-McKinley]] found [[f:sapphite-institute|The Sapphite Institute]] in New Bedford, Massachusetts — an elite women's graduate institute that will quietly shape a generation of operatives.` },
+    { date: `~1995`, title: `The Split`, text: `Ghost Widow grants Pax a single boon. Pax spends it on a child: [[c:jasmine-tull|Jasmine Tull]] is taken out of Arachnos and brought to New Bedford. Her twin [[c:jennifer-tull|Jennifer]] is left behind — and grows up a Widow of Arachnos, and the Red Queen's double agent within it.` },
+    { date: `1998`, title: `The Merge`, text: `On a Council mission to rescue the President's daughter — a pardon promised — Pax nearly dies, and merges with Shadowrender, a Nictus imprisoned for treason against Arakhn. The two become a Warshade, and the pardon is honoured.` }
+  ]},
+  { era: `The Conclave Years`, sub: `The syndicate in the shadows`, events: [
+    { date: `The Conclave Years`, title: `The Syndicate at Strength`, text: `Doctor Pain's [[f:conclave|Conclave]] — a syndicate of Origin-wings run out of Firavel's club on Mercy Island — reaches the height of its quiet power. Its intelligence wing, the Red Court, answers to the Red Queen; the Spears are led by Jeni Winters; and [[c:rue|Rue]] strong-arms her way into its ranks to keep her people safe.` },
+    { date: `Undated`, title: `The Red Queen's Succession`, text: `The Red Queen, Argiope, dies — and continues. Her consciousness passes into her Praetorian mirror, Sylvia Seer, who rules the Red Court thereafter with two lifetimes of memory.` },
+    { date: `2006`, title: `Valkyries and Friday`, text: `[[c:tara|Admiral Tara]] founds the [[f:vanguard-valkyries|Vanguard Valkyries]]; [[c:brigid|Brigid Morgan]] is among the first to wear the mantle. The same year, in a quiet server farm, version 1.0 of an intelligence called [[c:friday|Friday]] enters service.` },
+    { date: `Late 2019 – 2020`, title: `The Kallisti Incursion`, text: `The Conclave's webs converge on Kallisti Wharf. In the fighting and its aftermath, [[c:paxil-zap|Senator Paxil Zap]] is assassinated — and Penumbra is born of her dying symbiote, carrying her memories.` }
+  ]},
+  { era: `2020`, sub: `The year everything moved`, events: [
+    { date: `March 2020`, title: `Godkiller`, text: `Longbow's Godkiller operation tortures [[c:lilly-caine|Lilly Caine]]; [[c:rue|Rue]] carries her out of the fire to Valhalla. There was no mark on Lilly, and no claim — only rescue.` },
+    { date: `2020`, title: `The Seal Torn Down`, text: `After twelve thousand years, [[c:tara|Queen Tara]] tears down the seal on Bailetaraan and re-attaches her world to the Loom of Fate. Ten thousand years of metaphysical debt come due on her signature. The price is named at once: the Threadkeeper Mandate — [[c:brigid|Threadkeeper General Brigid Morgan]] holds legal authority to execute the Queen if the [[c:taranis|Taranis]] persona ever resurfaces in her bloodline.` },
+    { date: `2020`, title: `The Mind-Excision Pact`, text: `[[c:crystal|Crystal Ball-Graves]], [[c:rebecca|Rebecca]] and [[c:bangs|Bangs]] are caught in the Memory Palace incident. The pact that follows excises a shared span of memory — and a marriage is annulled in the quiet after.` },
+    { date: `2020`, title: `A New Commander`, text: `[[c:tessa-murphy|Contessa Murphy]] takes command of the [[f:vanguard-valkyries|Valkyries]] from their founding commander. [[c:tara|Tara]] keeps a sword, a throne, and no apologies.` },
+    { date: `August 2020`, title: `The Penumbra Incident`, text: `Aboard a hijacked submarine, Penumbra surfaces — carrying the memories of Pax and the hosts before her — and [[c:ramona-diaz|Ramona Diaz]], hunting those same memories for the Shadowrender she hosts, makes her move.` },
+    { date: `30–31 August 2020`, title: `The Reckoning`, text: `[[c:rue|Rue]] confronts [[c:jennifer-tull|Connie Royale]] — and turns her. [[c:jennifer-tull|Jennifer Tull]] survives inside what she becomes: Relicte. It is the turning the whole Cold War will echo.` },
+    { date: `2020`, title: `A Return, a Divorce`, text: `[[c:lilly-caine|Lilly Caine]] returns from the dimensional accident that took her. She and [[c:tara|Tess]] divorce before the throne — an ending, not a disappearance.` },
+    { date: `December 2020`, title: `The Engagement`, text: `[[c:kari|Kari Simmons]] — Sunset Angel, biochemist, lightning in a pink dress — becomes engaged to [[c:tara|Queen Tara]]. Six years by Earth reckoning; sixty by Bailetaraan's. The wedding is still to come.` },
+    { date: `Winter 2020`, title: `Presented at Court`, text: `[[c:terrak-darkborn|Terrak Darkborn]] is presented at the Storm Court.` }
+  ]},
+  { era: `The Reopened Realm`, sub: `Books I–II`, events: [
+    { date: `2020–21`, title: `The Relicte Killings`, text: `A killer works the Rogue Isles in Relicte's shape. OG and Lynch of the [[f:sapphorce|Sapphorce]] investigate — and the trail bends back toward the House of Tess.` },
+    { date: `2020–21`, title: `A Child of Storm and Dream`, text: `The Storm Queen carries [[c:souma|Souma's]] child. [[c:kayleigh|Kayleigh]] exists at every age of her life at once, and hears all timelines; this chronicle declines to file her under a single year.` },
+    { date: `2021`, title: `The Young Warriors`, text: `[[c:rose-wolfsbane|Rose]] — Duchess Rose, once Arachnos, once of the Institute — joins the Young Warriors.` },
+    { date: `Undated`, title: `The Dreamgate Reset`, text: `The Dreamgate Reset takes [[c:tara|Tess]] out of the world — to Eorzea, and out of memory. The court she leaves behind learns to govern in her absence.` },
+    { date: `Book II`, title: `The Submarine's Wake`, text: `A year on: [[c:shaylee|Shaylee]] wakes [[c:throgg|Throgg]] from his coma. [[c:calynn|Calynn]] breaks Lynch out of the Zig; [[c:brigid|Brigid]] and Lynch marry; [[c:tempora-vectis|Chloe]] — Tempora Vectis — and Lynch found the Red Room within the House of Tess.` }
+  ]},
+  { era: `2025`, sub: `Blasphemy`, events: [
+    { date: `July 2025`, title: `The Telemat Wakes`, text: `The old Conclave telemat grid — silent since the syndicate's fall — reactivates. Old members answer an SOS from [[c:jennifer-tull|Jennifer Tull]]: [[c:ramona-diaz|Ramona]], Bob, and others converge, honouring mutual-aid pacts they never considered broken.` },
+    { date: `2025`, title: `Blasphemy`, text: `Jennifer escapes — silently, through [[c:tara|Tess's]] portal to Bailetaraan — and becomes the focus of a faerie death story. In Primal, [[c:rue|Rue]] hunts her fledgling through Black Friday files and nanite traces.` },
+    { date: `2025`, title: `Arx Spira`, text: `A convergence gathers around Arx Spira — Kheldians, Fae, and the Conclave's scattered survivors. What was settled there, the record leaves unwritten.` }
+  ]},
+  { era: `2026`, sub: `The Cold War`, events: [
+    { date: `2026`, title: `The Memories Surface`, text: `The memories Penumbra carries — Pax's, and the hosts' before her — surface at last.` },
+    { date: `By 2026`, title: `The Volcano Court Bleeds`, text: `[[c:keahi|Queen Keahi]] of the [[f:volcano-court|Volcano Court]] is assassinated within a year of her crowning; Keanu falls to assassins as well. Her successor wears the crown as the nobles' puppet — and quietly carries her reforms forward.` },
+    { date: `March–May 2026`, title: `Thunderstone`, text: `The Thunderstone affair draws half the powers of the Woven World into its orbit — and a certain Penny has a very big adventure.` },
+    { date: `June–July 2026`, title: `The Duel`, text: `[[c:rebecca|Rebecca]] fights [[c:throgg|Throgg]] in formal duel. The aftermath hardens into the Duel-Lock: two powers, weapons drawn, neither able to move — the Cold War's defining stalemate.` },
+    { date: `Summer 2026`, title: `The Cleaner`, text: `[[c:silas-thorne|Silas Thorne]], the Crimson Cleaner, kills [[c:calynn|Calynn]] — the Cold War's coldest stroke, struck at the Storm Court's own.` }
+  ]},
+  { era: `Now`, sub: `Late 2026`, events: [
+    { date: `Late 2026`, title: `The Cold War`, text: `Eight powers circle the reopened realm in a cold war of debts, geases and deniable operations. The [[f:crimson-court|Crimson King]] waits behind his Duel-Lock; enemies no one has named are moving underneath it all. In St. Martial, the House of Tess holds the line under Fae Hospitality Law — and a royal wedding is coming.` },
+    { date: `31 December 2026`, title: `Friday`, text: `The House of Tess Underground marks its seventh anniversary, and [[c:kayleigh|Exposure Kills]] releases her album 'Friday'.` }
+  ]}
+];
+function tlLinkify(text) {
+  return text.replace(/\[\[([cf]):([a-z0-9-]+)\|([^\]]+)\]\]/g, (m, t, id, label) =>
+    `<a class="tl-link" href="#inspector-panel" data-kind="${t === 'c' ? 'character' : 'faction'}" data-id="${id}">${label}</a>`);
+}
+function renderTimeline() {
+  const host = document.getElementById('chronicle-timeline');
+  if (!host) return;
+  host.innerHTML = TIMELINE.map(era => `
+    <div class="tl-era"><h3>${era.era}</h3>${era.sub ? `<div class="tl-era-sub">${era.sub}</div>` : ''}</div>
+    ${era.events.map(ev => `<article class="tl-event"><span class="tl-date">${ev.date}</span><div class="tl-title">${ev.title}</div><div class="tl-text">${tlLinkify(ev.text)}</div></article>`).join('')}
+  `).join('');
+}
+document.addEventListener('click', (e) => {
+  const a = e.target.closest('.tl-link');
+  if (!a) return;
+  e.preventDefault();
+  selectEntity(a.dataset.kind, a.dataset.id);
+  const panel = document.getElementById('inspector-panel');
+  if (panel) panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+});
+renderTimeline();
+</script>
+
 </body>
 </html>
