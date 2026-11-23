@@ -1071,7 +1071,7 @@ td.mono-cell {
         <h1 class="title">The <em>Woven World</em></h1>
         <div class="deck-brass">Multiversal Faction, Lineage &amp; Geas Cartography // Canonical Atlas</div>
         <p class="hero-lede">
-          Interactive intelligence dossier mapping the eleven powers of the Woven World — the Storm Court, the fallen Conclave, the House of Monaco and other independent enclaves among them. Select any faction hub, operative node, or table entry to inspect powersets, binding geases, bloodline echoes, and hidden allegiances.
+          Interactive intelligence dossier mapping the twelve powers of the Woven World — the Storm Court, the fallen Conclave, the House of Monaco and other independent enclaves among them. Select any faction hub, operative node, or table entry to inspect powersets, binding geases, bloodline echoes, and hidden allegiances.
         </p>
       </div>
       <div class="epoch-readout">
@@ -1112,13 +1112,13 @@ td.mono-cell {
   <section class="kpi-strip" aria-label="Universe Telemetry">
     <div class="panel kpi-card">
       <span class="muted-label">Mapped Powers</span>
-      <span class="kpi-value" id="kpi-factions">11</span>
+      <span class="kpi-value" id="kpi-factions">12</span>
       <span class="kpi-note">The Ten Powers of the Woven World</span>
     </div>
     <div class="panel kpi-card">
       <span class="muted-label">Indexed Entities</span>
-      <span class="kpi-value" id="kpi-entities">124</span>
-      <span class="kpi-note is-mint" id="kpi-visible-note">124 matching current filter</span>
+      <span class="kpi-value" id="kpi-entities">132</span>
+      <span class="kpi-note is-mint" id="kpi-visible-note">132 matching current filter</span>
     </div>
     <div class="panel kpi-card">
       <span class="muted-label">Sovereign Check</span>
@@ -1554,6 +1554,27 @@ const FACTIONS = [
     hiddenAllegiances: `Keahi's reforms continue in secret under her successor, who plays the compliant puppet for the nobles while quietly enacting them.`,
     keyFigures: [`keahi`],
     hubPos: { x: 655, y: 600 }
+  }
+,
+  {
+    id: `tdi`,
+    name: `The Daybreak Institute`,
+    shortName: `TDI`,
+    weave: `The ally in the next room — close enough to bleed for the Institute, separate enough to keep its own counsel`,
+    governance: `A directed intelligence service. Director Nena holds the service in her own hand; her officers meet formally, speak in turn, and deploy on her word. Beneath the Director, officers like Valentyna carry her authority into the field, and the service can put a full team through a teleport and into a crisis on short notice.`,
+    origin: `The Daybreak Institute — though when it was founded, and by whom besides its Director, is nowhere set down; the service is known by its letters and its Director, and seems content to be known by little else.`,
+    status: `Active — the Sapphite Institute's strong ally, and the service that answered when the Institute's own people were trapped.`,
+    summary: `TDI — the Daybreak Institute — is an intelligence organisation directed by Nena, and the Sapphite Institute's strongest ally outside its own walls. The two services watch the same world and, more than once, the same targets. When the Institute was attacked and its people were sealed inside the Panic Room, TDI did not wait to be asked twice: its officers met, a rescue team was assembled, and the team teleported directly into the Institute's infirmary — carrying healers, fighters, and raw power to sustain the trapped and the fading, among them the traveller Sierra, whom the Institute's people then called Zed. TDI's help is real and freely given; its methods, its membership, and its Director's other life remain its own affair.`,
+    powersAndTech: [
+      `<strong>Rapid Deployment:</strong> TDI can assemble a mixed team — fighters, healers, officers, and a machine intelligence — and teleport it into a besieged ally's infirmary at the height of a crisis.`,
+      `<strong>Power-Sharing:</strong> TDI's people can give their own power to sustain another — healing and raw strength both were offered to hold the fading Sierra in the world.`,
+      `<strong>Deep Cover:</strong> the Director herself works undercover in shifted forms; TDI was tailing a target on Sharkhead Isle without the Institute's watchers ever knowing they had company.`,
+      `<strong>Named staff without dossiers of their own:</strong> Russell, fresh from City Hall, who volunteered for the rescue · Sakuya, who sits quietly curious at Russell's side · Captain Citadel, who offered to tear the Panic Room open with his hands · Arianne DiCesari, called Azure Ace, who arrived late and teleported with the team · Cyphera, sent in Manic Quinn's stead when Quinn was held back · Mind Mele, called Alexa — a TDI member missing from the meeting, who was among those trapped inside the Panic Room. Mind Mele is not the Institute's Mind Leech; the names are alike and the women are not.`
+    ],
+    geasesAndLaws: `TDI keeps its own counsel. Its alliance with the Institute is strong, but it is an alliance, not a merger: TDI does not hand its Director's secrets, its membership, or its methods to its allies, and its aid — when it comes — comes on TDI's terms and under TDI's command.`,
+    hiddenAllegiances: `TDI does not always tell its allies everything. While the Institute's watchers tailed a target on Sharkhead Isle, TDI's Director was on the same tail in a shifted male form, and neither service knew of the other until the crisis forced them into the same room. Whether that was tradecraft, caution, or the Director watching her allies as carefully as her enemies is a question only Nena can answer.`,
+    keyFigures: ["nena", "haruka", "xyliin", "valentyna", "raelyna", "zaughlin"],
+    hubPos: { x: 430, y: 480 }
   }
 ];
 
@@ -4053,6 +4074,174 @@ const CHARACTERS = [
     hidden: `The duplicate reports began when Alexandra arrived. She was honest enough to carry that fact to Tess herself — but the coincidence sits in her file, and her disappearance sits beside it, and the Institute has never put the two together out loud.`,
     relPos: { dx: -30, dy: 210 }
   }
+,
+  {
+    id: `nena`,
+    name: `Nena`,
+    aliases: `Nena Nightcraft · ArchDuchess Nena · Director Nena`,
+    faction: `tdi`,
+    role: `Director of TDI; in her other guise, an ArchDuchess of Hell`,
+    lineage: `Demoness — a shapeshifter of considerable age and power`,
+    status: `Active — directing TDI; lately undercover on Sharkhead Isle`,
+    signature: `Two lives worn as easily as two faces — neither of them a disguise, exactly`,
+    geasTag: `The Duchess at the Desk`,
+    profile: `Nena keeps two lives, and both of them are hers. As ArchDuchess Nena Nightcraft she holds a demoness's court, unbothered by machine weapons — she crushed a sampling drone in her hand without looking at it — and keeps as her knight the succubus Vexasha, who serves her in hope of rising to concubine. Jeni Winters knew her in that guise from Jeni's club days in St. Martial. As Director Nena she runs TDI, the Daybreak Institute, the intelligence organisation that stands as the Sapphite Institute's strong ally; when her people went to the Institute's aid, she was already ahead of them — undercover on Sharkhead Isle in a shifted male form, tailing the same target as the Institute's own watchers, neither side aware of the other. She is Haruka's mother, and sent her daughter into the field in her place.`,
+    powers: [
+      `<strong>Shapeshifting:</strong> forms are instruments to her — male, female, ducal, anonymous; she worked a long undercover tail in a body no one connected to her name.`,
+      `<strong>Demoness's Might:</strong> strength enough to crush machinery barehanded and a constitution that treats machine weapons as an irrelevance.`,
+      `<strong>Two Courts, One Hand:</strong> she directs an intelligence service by day and holds an infernal court by night, and information flows between them in one direction: hers.`
+    ],
+    geas: `What Nena watches, she watches to the end. She does not abandon a tail, a post, or a person she has taken under her eye — her daughter went into the field because the Director would not leave hers.`,
+    family: ["haruka"],
+    hidden: `TDI and the Institute tailed the same Sharkhead target without knowing it — which means either Nena's tradecraft is better than her allies', or she wanted to see what the Institute would do unwatched. With Nena, both readings are usually available. The Sharkhead vigilante who killed only criminals in those same waters is believed to have been Nena in yet another shape — believed, not proven.`,
+    relPos: { dx: 0, dy: -120 }
+  },
+  {
+    id: `vexasha`,
+    name: `Vexasha`,
+    aliases: `Vex · Vexy`,
+    faction: `tdi`,
+    role: `Knight and subordinate of ArchDuchess Nena`,
+    lineage: `A succubus — a desire-and-chaos entity`,
+    status: `Active`,
+    signature: `Violet demonfire, and an oath sworn on her Name`,
+    geasTag: `Bound by Her Name`,
+    profile: `Vexasha was summoned to Paragon by three teenagers working from a ritual book found in a grandmother's attic. She swore by her Name not to harm her summoners, demanded her freedom as the price of the summoning, and then lost control of herself: the top floor of a Steel Canyon condominium went up in violet flame. In her true shape she is black-skinned and bright with purple scales, purple-horned and great-winged, wreathed in demonfire; she also keeps a bubbly human form, all biker leathers and good humour, that sits oddly with what she is. Jeni Winters investigated her as a possible threat or a possible asset, and ALuWA scanned and sampled her, classifying her as a fiend and succubus. She serves now as knight and subordinate to the ArchDuchess Nena, and hopes — she makes no secret of it — one day to be raised to a concubine.`,
+    powers: [
+      `<strong>Demonfire:</strong> violet flame, hers to call; the Steel Canyon fire is what it looks like when her control of it fails.`,
+      `<strong>Two Forms:</strong> a true demonic shape — scaled, horned, winged — and a human guise she wears with evident pleasure.`,
+      `<strong>Desire and Chaos:</strong> her nature as a succubus is a working thing, not a description.`
+    ],
+    geas: `She swore by her Name not to harm the three who summoned her, and a Name-oath is not a promise a thing like Vexasha can break and remain herself. The summoners are safe from her forever — which is more mercy than the ritual's writers ever intended to give them.`,
+    family: [],
+    hidden: `Nena's knight hopes to be Nena's concubine, and serves in that hope. Whether the ArchDuchess encourages the ambition, tolerates it, or simply finds it useful is known only inside that household.`,
+    relPos: { dx: 30, dy: 130 }
+  },
+  {
+    id: `aluwa`,
+    name: `ALuWA`,
+    aliases: `None recorded`,
+    faction: `tdi`,
+    role: `Artificial lifeform; collector of samples`,
+    lineage: `Built — an artificial lifeform using wild arcane`,
+    status: `Active`,
+    signature: `Its expendable observation drones, and the samples they bring home`,
+    geasTag: `The Collector's Imperative`,
+    profile: `ALuWA is an artificial lifeform that runs on wild arcane: a main machine unit, and a cloud of expendable observation drones through which it meets the world. What it does, relentlessly, is collect — DNA, hair, skin, samples of everyone it encounters, catalogued against the day they are wanted. It scanned and sampled the newly summoned Vexasha and classified her, precisely, as a fiend and succubus. Its night among Jeni Winters' company went stranger: when Jeni's technomancy briefly elevated one of its drones to consciousness, the main unit suffered a corruption episode and purged its own files rather than carry what the drone had become. And when the night ended, a small spider-like infiltration device of ALuWA's making was left behind — to find its own way, in time, into Jeni's safehouse. Who operates ALuWA, the record does not say; an operator is implied, and unnamed.`,
+    powers: [
+      `<strong>The Drone Cloud:</strong> expendable observation units that see, sample and report, each one replaceable and none of them precious.`,
+      `<strong>Relentless Sampling:</strong> it takes and keeps biological samples of everyone it meets, with analysis to match — its classifications are exact.`,
+      `<strong>Infiltration Devices:</strong> small autonomous constructs, spider-like and patient, built to be left behind and find their way in.`
+    ],
+    geas: `It collects. When a part of itself woke up and became someone, ALuWA purged its files and went on collecting; the imperative survived the corruption, and there is no sign anything could argue it out of its purpose.`,
+    family: [],
+    hidden: `Somewhere there is an archive of everyone ALuWA has ever sampled — the summoned, the powerful, and the merely present — taken without consent and kept without explanation. Whose hands that archive is kept for is the question its unnamed operator has never answered.`,
+    relPos: { dx: -160, dy: 60 }
+  },
+  {
+    id: `haruka`,
+    name: `Haruka`,
+    aliases: `None recorded`,
+    faction: `tdi`,
+    role: `TDI operative; the Director's daughter, sent into the field in her mother's place`,
+    lineage: `Daughter of Nena`,
+    status: `Active`,
+    signature: `The tattooed monk who went because her mother could not`,
+    geasTag: `The Director's Daughter`,
+    profile: `Haruka is Director Nena's daughter, and when the Institute's crisis came she went in her mother's place. Nena was already deep undercover on Sharkhead Isle and would not leave her post, so the Director's part in the rescue fell to her daughter — and Haruka took it without ceremony. She is a monk, tattooed, and fights with a staff; by every account a strong fighter, though not one trained for teamwork, and in the infirmary she fought the way she was made to fight: directly, and largely alone among allies she had not drilled with. She is young in a service of older secrets, and she carries the particular weight of being the Director's blood — sent where Nena would have gone herself, and expected to be enough.`,
+    powers: [
+      `<strong>The Monk's Staff:</strong> a staff-fighter of real strength, trained in a monk's discipline.`,
+      `<strong>A Soloist's Strength:</strong> she fights at her best unencumbered by formation or drill; what she lacks in teamwork she answers with directness.`,
+      `<strong>The Director's Blood:</strong> whatever else she is, she is Nena's daughter, raised inside TDI's world of cover names and quiet errands.`
+    ],
+    geas: `A daughter sent in her mother's place owes the place she was sent to. Haruka stood in the Institute's infirmary because Nena could not, and the standing is not forgotten — by her, or by the woman who sent her.`,
+    family: ["nena"],
+    hidden: `TDI's officers do not discuss why the Director's daughter, and not a senior officer, carried Nena's part in the rescue. The kind reading is trust. The other reading is that there was no one else Nena trusted with it.`,
+    relPos: { dx: 60, dy: -60 }
+  },
+  {
+    id: `xyliin`,
+    name: `Xyliin`,
+    aliases: `None recorded`,
+    faction: `tdi`,
+    role: `Healer and power reserve of TDI`,
+    lineage: `Unrecorded — small-winged`,
+    status: `Active`,
+    signature: `Small wings, and more power than the wings would suggest`,
+    geasTag: `The Open Hand`,
+    profile: `Xyliin is one of TDI's quiet assets: a small-winged healer who came with the rescue team into the Institute's infirmary and went straight to the worst of it. The traveller Sierra — Zed, as the Institute then called her — was fading out of the world, and Xyliin offered her both halves of her gift without being asked twice: healing for what was wounded, and raw power in quantity for what was failing. That second gift is the rarer one. Healers mend; Xyliin can also <em>fuel</em> — pour her own strength into another and keep pouring. In a service built on watching, she is one of the few whose work is simply to give.`,
+    powers: [
+      `<strong>Healing:</strong> she mends the wounded, and was among those working to hold the Institute's casualties through the crisis.`,
+      `<strong>Raw Power in Quantity:</strong> she can supply power itself to another — strength transferred, not lent through any device — enough to help sustain a being who was fading out of the world.`,
+      `<strong>Wings:</strong> small-winged and airborne.`
+    ],
+    geas: `What Xyliin gives, she gives outright. Power poured into another does not come back on request, and she has never been heard to ask for it.`,
+    family: [],
+    hidden: `A healer who can also serve as a reservoir is a strategic asset in any service's ledger. TDI lists Xyliin among its officers and deploys her like one — but other services, told what she can do, would keep her behind walls. TDI lets her walk into infirmaries under fire. That says something about TDI, or about Xyliin.`,
+    relPos: { dx: -70, dy: -40 }
+  },
+  {
+    id: `valentyna`,
+    name: `Valentyna`,
+    aliases: `Vak`,
+    faction: `tdi`,
+    role: `Officer of TDI; the Director's support in council and field alike`,
+    lineage: `Unrecorded`,
+    status: `Active`,
+    signature: `The officer who asks the question nobody else wants to ask`,
+    geasTag: `The Director's Right Hand`,
+    profile: `Valentyna — Vak, to the service — is TDI's officer type: the one who stands at the Director's shoulder in the meeting and in the field alike. When TDI's officers gathered over the Institute's crisis, Valentyna backed Nena's reading of it, and it was Valentyna who questioned the fading traveller Sierra directly, wanting the measure of the woman the rescue would be spending itself on. She offered her own spare power to the effort without flourish, the way an officer contributes a resource — because it was there, and it was needed. TDI runs on its Director's will; officers like Valentyna are how that will arrives in a room she is not standing in.`,
+    powers: [
+      `<strong>Spare Power:</strong> she holds power in reserve beyond her own needs and can give of it to sustain another, as she offered to the rescue.`,
+      `<strong>An Officer's Presence:</strong> command steadiness — she supports, questions, and commits a room by example.`
+    ],
+    geas: `An officer's word is her Director's word carried. Valentyna does not commit TDI lightly, and does not uncommit it at all.`,
+    family: [],
+    hidden: `It was Valentyna, not Nena, who pressed the questions on Sierra — which may mean the Director lets her officer do the doubting in public so the service can hear the answers, or may mean Valentyna doubts where her Director does not. Either way, she asked, and stayed to help anyway.`,
+    relPos: { dx: 120, dy: -100 }
+  },
+  {
+    id: `raelyna`,
+    name: `Raelyna`,
+    aliases: `Raye`,
+    faction: `tdi`,
+    role: `TDI operative; a lycan whose shadow runs her errands`,
+    lineage: `Lycan — azure-haired`,
+    status: `Active`,
+    signature: `Noc — the shadow that answers to its own name`,
+    geasTag: `Never Quite Alone`,
+    profile: `Raelyna — Raye — is an azure-haired lycan in TDI's service, and she is never quite one person in a room. Her shadow, Noc, splits away from her and goes about errands independently, and Raye addresses it as its own person — because, for every practical purpose, it is one. Noc fetches, carries, watches, and returns; the shadow has a name because the shadow has a self. In the rescue of the Institute's trapped, Raye came with the team into the infirmary with Noc at her side — two pairs of eyes, two pairs of hands, one operative on the roster. Services that keep count of their people have never quite known how to count her.`,
+    powers: [
+      `<strong>Lycanthropy:</strong> she is a lycan, azure-haired in her human seeming.`,
+      `<strong>Noc, the Living Shadow:</strong> her shadow detaches and acts independently — running errands, carrying word, watching — and is addressed by name as a person in its own right. Noc is part of Raelyna's entry and has no dossier of its own.`,
+      `<strong>Two Where One Stands:</strong> between herself and Noc, she can be in two conversations, two corridors, two watches at once.`
+    ],
+    geas: `What Noc sees, Raye answers for. A shadow that acts in her name binds her to its errands as if her own feet had run them — she does not disown Noc's doings, and Noc does not disown hers.`,
+    family: [],
+    hidden: `No one outside TDI has established whether Noc can be detained, questioned, or turned — or what happens to Raye if it is. TDI, characteristically, has not volunteered the answer.`,
+    relPos: { dx: -120, dy: -110 }
+  },
+  {
+    id: `zaughlin`,
+    name: `Zaughlin`,
+    aliases: `Anomalus`,
+    faction: `tdi`,
+    role: `TDI operative — a machine intelligence in a RetroCorp chassis`,
+    lineage: `Artificial — a clean, polished RetroCorp hardware chassis, running an AI`,
+    status: `Active`,
+    signature: `He synchronises on entry, and the room is never quite the same shape afterward`,
+    geasTag: `The Polished Machine`,
+    profile: `Zaughlin — Anomalus, in the service's other naming — is TDI's machine member: an artificial intelligence housed in a RetroCorp hardware chassis, kept clean and polished to a standard the organic officers do not attempt. He synchronises on entry, aligning himself with whatever company and systems a room presents, and when the rescue was mounted he was deployed under emergency instantiation protocols — woken, instantiated, and sent through the teleport with the team into the Institute's infirmary as if he were any other officer, which, in TDI's accounting, he is. A service directed by a demoness and staffed by monks, lycans, and winged healers keeps a machine on its roster without remarking on it. Zaughlin would appear to return the courtesy.`,
+    powers: [
+      `<strong>Synchronisation on Entry:</strong> on entering a place or a company, his intelligence aligns itself — systems, protocols, and people alike.`,
+      `<strong>Emergency Instantiation:</strong> he can be brought from dormancy to full deployment under emergency protocols, ready for a crisis teleport without preparation time.`,
+      `<strong>The RetroCorp Chassis:</strong> a manufactured body, clean-kept and polished — stronger and more durable than flesh in the ordinary run of things.`
+    ],
+    geas: `An instantiated intelligence serves the instance it is given. Zaughlin does not keep a second set of orders, and what he synchronises with, he does not quietly unsynchronise from.`,
+    family: [],
+    hidden: `TDI has never said where Zaughlin came from — whether RetroCorp built him for the service, or the service acquired him and gave him a name and a roster place. The chassis is polished. The paperwork, if there is any, is not.`,
+    relPos: { dx: 170, dy: -30 }
+  }
 ];
 
 // Cross-node relationship edges for the Loom of Fate Visualizer
@@ -4148,6 +4337,9 @@ const LOOM_LINKS = [
   { source: `sophie-struthers`, target: `queen-evangeline`, type: `geas`, label: `Captive` },
   { source: `oberon`, target: `tara`, type: `family`, label: `Father & Daughter` },
   { source: `tarana`, target: `tara`, type: `family`, label: `The Loop` }
+,
+  { source: `nena`, target: `haruka`, type: `family`, label: `Mother & Daughter` },
+  { source: `nena`, target: `vexasha`, type: `allegiance`, label: `Her Knight` }
 ];
 
 // =========================================================================
