@@ -993,11 +993,11 @@ td.mono-cell {
   .tl-track { cursor: pointer; }
 
   .ww-tab[aria-selected="true"] { background: var(--primary); color: #141122; border-color: var(--primary); }
-  #ww-page-factions, #ww-page-timeline, #ww-page-alternate { height: calc(100vh - 28px); overflow-y: auto; }
+  #ww-page-factions, #ww-page-timeline, #ww-page-alternate, #ww-page-reference { height: calc(100vh - 28px); overflow-y: auto; }
   @media (max-width: 1080px) {
     .ww-layout { grid-template-columns: minmax(0, 1fr); }
     .ww-side .inspector-panel { position: static; height: auto; max-height: 780px; }
-    #ww-page-factions, #ww-page-timeline, #ww-page-alternate { height: auto; overflow: visible; }
+    #ww-page-factions, #ww-page-timeline, #ww-page-alternate, #ww-page-reference { height: auto; overflow: visible; }
   }
 </style>
 <style>
@@ -1124,6 +1124,7 @@ td.mono-cell {
       <button type="button" class="btn" onclick="goTab('timeline')">Read the Chronicle — twelve thousand years</button>
       <button type="button" class="btn" onclick="goTab('alternate')">The Friday Timeline — the album, track by track</button>
       <button type="button" class="btn" onclick="goTab('map')">The Weave — every thread on one loom</button>
+      <button type="button" class="btn" onclick="goTab('reference')">The Reference — Fae Law &amp; the active crises</button>
     </div>
     <p class="hero-lede" style="max-width: 92ch; margin-top:10px;">
       Wherever you begin: select any name, anywhere on this page, and its dossier opens beside you.
@@ -1348,14 +1349,7 @@ td.mono-cell {
   </section>
 
   <!-- Metaphysical Rules & Active Crises Reference -->
-  <div class="panel-header-row" style="margin-top: var(--space-lg);">
-    <div>
-      <h2 class="section-heading">Reference — Fae Law &amp; Active Crises</h2>
-      <div class="deck-brass">The rules of the world and the fires currently burning — folded until you need them</div>
-    </div>
-    <button type="button" class="btn" onclick="toggleSection('laws-grid', this, 'the reference')">Show the reference</button>
-  </div>
-  <section class="laws-grid" id="laws-grid" style="display:none" aria-label="Fae Law and Active Crises">
+  <section class="laws-grid" id="laws-grid" aria-label="Fae Law and Active Crises">
     <div class="panel">
       <h2 class="section-heading">Fae Law as Metaphysical Physics</h2>
       <div class="deck-brass">Canonical Mechanics Governing All Courts</div>
@@ -5475,9 +5469,10 @@ renderTimeline();
     map: [pick('.controls-panel'), pick('.loom-panel'), pick('.kpi-strip')],
     factions: [pick('section[aria-label="Key Factions Directory"]')],
     timeline: [pick('section[aria-label="The Story So Far"]'), pick('section[aria-label="Chronicle of the Woven World"]')],
-    alternate: [pick('section[aria-label="The Friday Timeline"]')]
+    alternate: [pick('section[aria-label="The Friday Timeline"]')],
+    reference: [pick('.laws-grid')]
   };
-  const bottom = [pick('section[aria-label="Operative Registry Table"]'), pick('.laws-grid')];
+  const bottom = [pick('section[aria-label="Operative Registry Table"]')];
   const inspector = document.getElementById('inspector-panel');
   if (!inspector || !groups.map[1]) return;
 
@@ -5496,7 +5491,7 @@ renderTimeline();
   tabbar.setAttribute('role', 'tablist');
   tabbar.setAttribute('aria-label', 'Atlas views');
   mainCol.appendChild(tabbar);
-  const labels = { map: 'The Weave', factions: 'Factions', timeline: 'Timeline', alternate: 'The Friday Timeline' };
+  const labels = { map: 'The Weave', factions: 'Factions', timeline: 'Timeline', alternate: 'The Friday Timeline', reference: 'Reference' };
   const pages = {};
   const buttons = {};
   Object.keys(groups).forEach((key) => {
@@ -5535,7 +5530,7 @@ renderTimeline();
     if (pushHash) { try { history.replaceState(null, '', '#' + key); } catch (e) {} }
   }
   window.switchTab = switchTab;
-  const start = ['map', 'factions', 'timeline', 'alternate'].includes((location.hash || '').slice(1)) ? location.hash.slice(1) : 'map';
+  const start = ['map', 'factions', 'timeline', 'alternate', 'reference'].includes((location.hash || '').slice(1)) ? location.hash.slice(1) : 'map';
   switchTab(start, false);
 })();
 
