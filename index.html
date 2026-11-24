@@ -993,11 +993,11 @@ td.mono-cell {
   .tl-track { cursor: pointer; }
 
   .ww-tab[aria-selected="true"] { background: var(--primary); color: #141122; border-color: var(--primary); }
-  #ww-page-factions, #ww-page-timeline, #ww-page-alternate, #ww-page-reference { height: calc(100vh - 28px); overflow-y: auto; }
+  #ww-page-factions, #ww-page-timeline, #ww-page-alternate, #ww-page-reference, #ww-page-registry { height: calc(100vh - 28px); overflow-y: auto; }
   @media (max-width: 1080px) {
     .ww-layout { grid-template-columns: minmax(0, 1fr); }
     .ww-side .inspector-panel { position: static; height: auto; max-height: 780px; }
-    #ww-page-factions, #ww-page-timeline, #ww-page-alternate, #ww-page-reference { height: auto; overflow: visible; }
+    #ww-page-factions, #ww-page-timeline, #ww-page-alternate, #ww-page-reference, #ww-page-registry { height: auto; overflow: visible; }
   }
 </style>
 <style>
@@ -1293,9 +1293,8 @@ td.mono-cell {
         <div class="deck-brass">Tabular index of indexed entities, powersets, geas status, and shadow vectors</div>
       </div>
       <span class="badge is-mint" id="table-count-badge">44 Entries</span>
-      <button type="button" class="btn" onclick="toggleSection('registry-table-wrap', this, 'the index')">Show the index</button>
     </div>
-    <div class="table-wrap" id="registry-table-wrap" style="display:none">
+    <div class="table-wrap" id="registry-table-wrap">
       <table>
         <thead>
           <tr>
@@ -5437,9 +5436,10 @@ renderTimeline();
     factions: [pick('section[aria-label="Key Factions Directory"]')],
     timeline: [pick('section[aria-label="The Story So Far"]'), pick('section[aria-label="Chronicle of the Woven World"]')],
     alternate: [pick('section[aria-label="The Friday Timeline"]')],
-    reference: [pick('.laws-grid')]
+    reference: [pick('.laws-grid')],
+    registry: [pick('section[aria-label="Operative Registry Table"]')]
   };
-  const bottom = [pick('section[aria-label="Operative Registry Table"]')];
+  const bottom = [];
   const inspector = document.getElementById('inspector-panel');
   if (!inspector || !groups.map[1]) return;
 
@@ -5458,7 +5458,7 @@ renderTimeline();
   tabbar.setAttribute('role', 'tablist');
   tabbar.setAttribute('aria-label', 'Atlas views');
   mainCol.appendChild(tabbar);
-  const labels = { map: 'The Weave', factions: 'Factions', timeline: 'Timeline', alternate: 'The Friday Timeline', reference: 'Reference' };
+  const labels = { map: 'The Weave', factions: 'Factions', timeline: 'Timeline', alternate: 'The Friday Timeline', reference: 'Reference', registry: 'Registry' };
   const pages = {};
   const buttons = {};
   Object.keys(groups).forEach((key) => {
@@ -5507,7 +5507,7 @@ renderTimeline();
     if (pushHash) { try { history.replaceState(null, '', location.pathname + location.search); } catch (e) {} }
   }
   window.switchTab = switchTab;
-  const start = ['map', 'factions', 'timeline', 'alternate', 'reference'].includes((location.hash || '').slice(1)) ? location.hash.slice(1) : null;
+  const start = ['map', 'factions', 'timeline', 'alternate', 'reference', 'registry'].includes((location.hash || '').slice(1)) ? location.hash.slice(1) : null;
   if (start) switchTab(start, false); else closeTabs(false);
 })();
 
