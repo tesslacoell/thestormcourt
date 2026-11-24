@@ -979,6 +979,7 @@ td.mono-cell {
   .ww-main > * { margin-bottom: 18px; }
   .ww-side { position: relative; min-width: 0; }
   .ww-side .inspector-panel { margin: 0; position: sticky; top: 14px; height: calc(100vh - 28px); max-height: calc(100vh - 28px); }
+  .panel .ww-tabbar { margin-top: var(--space-md); }
   .ww-tabbar { display: flex; gap: 10px; flex-wrap: wrap; margin: 0 0 16px; }
   .ww-tab { appearance: none; border: 1px solid var(--brass-border); background: var(--surface-container); color: inherit; font: inherit; font-weight: 700; letter-spacing: 0.05em; padding: 10px 22px; border-radius: 999px; cursor: pointer; box-shadow: var(--panel-highlight); }
   .ww-tab:hover { filter: brightness(1.2); }
@@ -5457,7 +5458,8 @@ renderTimeline();
   tabbar.className = 'ww-tabbar';
   tabbar.setAttribute('role', 'tablist');
   tabbar.setAttribute('aria-label', 'Atlas views');
-  mainCol.appendChild(tabbar);
+  const startPanel = pick('section[aria-label="Start Here"]');
+  if (startPanel) startPanel.appendChild(tabbar); else mainCol.appendChild(tabbar);
   const labels = { registry: 'Characters', factions: 'Factions', timeline: 'Timeline', map: 'The Weave', alternate: 'The Friday Timeline', reference: 'Fae Law' };
   const pages = {};
   const buttons = {};
