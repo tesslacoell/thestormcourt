@@ -1119,16 +1119,6 @@ td.mono-cell {
     <p class="hero-lede" style="max-width: 92ch;">
       This atlas holds twelve powers, 132 indexed lives, twelve thousand years of chronicle, and one alternate thread. You do not have to drink the ocean. Pick a door:
     </p>
-    <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:6px;">
-      <button type="button" class="btn is-primary" onclick="goTab('factions')">Meet the Powers — the twelve factions</button>
-      <button type="button" class="btn" onclick="goTab('timeline')">Read the Chronicle — twelve thousand years</button>
-      <button type="button" class="btn" onclick="goTab('alternate')">The Friday Timeline — the album, track by track</button>
-      <button type="button" class="btn" onclick="goTab('map')">The Weave — every thread on one loom</button>
-      <button type="button" class="btn" onclick="goTab('reference')">The Reference — Fae Law &amp; the active crises</button>
-    </div>
-    <p class="hero-lede" style="max-width: 92ch; margin-top:10px;">
-      Wherever you begin: select any name, anywhere on this page, and its dossier opens beside you.
-    </p>
   </section>
 
   <!-- Top KPI Strip -->
@@ -5503,7 +5493,7 @@ renderTimeline();
     btn.setAttribute('aria-selected', 'false');
     btn.setAttribute('aria-controls', 'ww-page-' + key);
     btn.textContent = labels[key];
-    btn.addEventListener('click', () => switchTab(key, true));
+    btn.addEventListener('click', () => { if (openKey === key) closeTabs(true); else switchTab(key, true); });
     tabbar.appendChild(btn);
     buttons[key] = btn;
 
@@ -5522,24 +5512,28 @@ renderTimeline();
   main.parentNode.insertBefore(layout, main);
   main.remove();
 
+  let openKey = null;
   function switchTab(key, pushHash) {
+    openKey = key;
     Object.entries(pages).forEach(([k, page]) => {
       page.hidden = k !== key;
       buttons[k].setAttribute('aria-selected', k === key ? 'true' : 'false');
     });
     if (pushHash) { try { history.replaceState(null, '', '#' + key); } catch (e) {} }
   }
+  function closeTabs(pushHash) {
+    openKey = null;
+    Object.entries(pages).forEach(([k, page]) => {
+      page.hidden = true;
+      buttons[k].setAttribute('aria-selected', 'false');
+    });
+    if (pushHash) { try { history.replaceState(null, '', location.pathname + location.search); } catch (e) {} }
+  }
   window.switchTab = switchTab;
-  const start = ['map', 'factions', 'timeline', 'alternate', 'reference'].includes((location.hash || '').slice(1)) ? location.hash.slice(1) : 'map';
-  switchTab(start, false);
+  const start = ['map', 'factions', 'timeline', 'alternate', 'reference'].includes((location.hash || '').slice(1)) ? location.hash.slice(1) : null;
+  if (start) switchTab(start, false); else closeTabs(false);
 })();
 
-function goTab(key) {
-  toggleAtlas(true);
-  if (window.switchTab) switchTab(key, true);
-  const bar = document.querySelector('.ww-tabbar');
-  if (bar) bar.scrollIntoView({ behavior: 'smooth', block: 'start' });
-}
 function toggleSection(id, btn, label) {
   const el = document.getElementById(id);
   if (!el) return;
@@ -5547,24 +5541,6 @@ function toggleSection(id, btn, label) {
   el.style.display = show ? '' : 'none';
   if (btn) btn.textContent = (show ? 'Hide ' : 'Show ') + label;
 }
-function toggleAtlas(show) {
-  const layout = document.querySelector('.ww-layout');
-  if (!layout) return;
-  const willShow = typeof show === 'boolean' ? show : layout.style.display === 'none';
-  layout.style.display = willShow ? '' : 'none';
-  const btn = document.getElementById('atlas-toggle');
-  if (btn) btn.textContent = willShow ? 'Fold the Atlas' : 'Open the Atlas';
-}
-(function () {
-  const layout = document.querySelector('.ww-layout');
-  if (!layout) return;
-  const bar = document.createElement('div');
-  bar.className = 'panel';
-  bar.style.marginBottom = 'var(--space-md)';
-  bar.innerHTML = '<div class="panel-header-row"><div><h2 class="section-heading">The Atlas</h2><div class="deck-brass">The Weave, the factions, both chronicles, and every dossier</div></div><button type="button" class="btn is-primary" id="atlas-toggle" onclick="toggleAtlas()">Open the Atlas</button></div>';
-  layout.parentNode.insertBefore(bar, layout);
-  layout.style.display = 'none';
-})();
 </script>
 
 
