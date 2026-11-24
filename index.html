@@ -5531,6 +5531,7 @@ renderTimeline();
 })();
 
 function goTab(key) {
+  toggleAtlas(true);
   if (window.switchTab) switchTab(key, true);
   const bar = document.querySelector('.ww-tabbar');
   if (bar) bar.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -5542,6 +5543,24 @@ function toggleSection(id, btn, label) {
   el.style.display = show ? '' : 'none';
   if (btn) btn.textContent = (show ? 'Hide ' : 'Show ') + label;
 }
+function toggleAtlas(show) {
+  const layout = document.querySelector('.ww-layout');
+  if (!layout) return;
+  const willShow = typeof show === 'boolean' ? show : layout.style.display === 'none';
+  layout.style.display = willShow ? '' : 'none';
+  const btn = document.getElementById('atlas-toggle');
+  if (btn) btn.textContent = willShow ? 'Fold the Atlas' : 'Open the Atlas';
+}
+(function () {
+  const layout = document.querySelector('.ww-layout');
+  if (!layout) return;
+  const bar = document.createElement('div');
+  bar.className = 'panel';
+  bar.style.marginBottom = 'var(--space-md)';
+  bar.innerHTML = '<div class="panel-header-row"><div><h2 class="section-heading">The Atlas</h2><div class="deck-brass">The tabbed window and the Inspector — the Weave, the factions, both chronicles, and every dossier</div></div><button type="button" class="btn is-primary" id="atlas-toggle" onclick="toggleAtlas()">Open the Atlas</button></div>';
+  layout.parentNode.insertBefore(bar, layout);
+  layout.style.display = 'none';
+})();
 </script>
 
 
