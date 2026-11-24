@@ -981,6 +981,16 @@ td.mono-cell {
   .ww-tabbar { display: flex; gap: 10px; flex-wrap: wrap; margin: 0 0 16px; }
   .ww-tab { appearance: none; border: 1px solid var(--brass-border); background: var(--surface-container); color: inherit; font: inherit; font-weight: 700; letter-spacing: 0.05em; padding: 10px 22px; border-radius: 999px; cursor: pointer; box-shadow: var(--panel-highlight); }
   .ww-tab:hover { filter: brightness(1.2); }
+  /* 'Friday' lyrics popup */
+  .lyrics-modal { position: fixed; inset: 0; z-index: 200; background: rgba(8, 6, 18, 0.72); display: flex; align-items: center; justify-content: center; padding: 18px; }
+  .lyrics-modal[hidden] { display: none; }
+  .lyrics-panel { position: relative; background: var(--surface-container); border: 1px solid var(--brass-border); border-radius: 14px; box-shadow: var(--panel-highlight); max-width: 640px; width: 100%; max-height: 82vh; overflow-y: auto; padding: 22px 26px; }
+  .lyrics-panel h3 { margin: 0 28px 12px 0; font-size: 1.2rem; letter-spacing: 0.03em; }
+  .lyrics-body { white-space: pre-wrap; line-height: 1.6; opacity: 0.94; }
+  .lyrics-close { position: absolute; top: 10px; right: 12px; appearance: none; border: none; background: none; color: inherit; font-size: 1.5rem; line-height: 1; cursor: pointer; padding: 4px 8px; }
+  .lyrics-close:hover { color: var(--primary); }
+  .tl-track { cursor: pointer; }
+
   .ww-tab[aria-selected="true"] { background: var(--primary); color: #141122; border-color: var(--primary); }
   #ww-page-factions, #ww-page-timeline, #ww-page-alternate { height: calc(100vh - 28px); overflow-y: auto; }
   @media (max-width: 1080px) {
@@ -1234,7 +1244,7 @@ td.mono-cell {
     <div class="panel-header-row">
       <div>
         <h2 class="section-heading">The Friday Timeline</h2>
-        <div class="deck-brass">An alternate thread — not the prime Chronicle. Select any name to open its dossier</div>
+        <div class="deck-brass">An alternate thread — not the prime Chronicle. Select a track title to read its lyrics; select any name to open its dossier</div>
       </div>
     </div>
     <div class="chronicle-spine">
@@ -1244,37 +1254,37 @@ td.mono-cell {
       </div>
       <div class="tl-event">
         <span class="tl-date">Track One</span>
-        <div class="tl-title">Guardians of the Binary Night</div>
+        <div class="tl-title"><a class="tl-link tl-track" onclick="openLyrics('guardians')">Guardians of the Binary Night</a></div>
         <div class="tl-text">After the heroes burned out and the city bled, the Guardians offered managed security in exchange for free will: a sterile, AR-filtered grid, history scrubbed, every threat watched. &ldquo;Lockdown the perimeter, no breach allowed.&rdquo; For twenty years the grid held — a sanctuary built out of silence and stone.</div>
       </div>
       <div class="tl-event">
         <span class="tl-date">Track Two</span>
-        <div class="tl-title">Social Contract for the End Times</div>
+        <div class="tl-title"><a class="tl-link tl-track" onclick="openLyrics('contract')">Social Contract for the End Times</a></div>
         <div class="tl-text">The bargain, in the Guardians&rsquo; own sales pitch, directed by <a class="tl-link" onclick="selectEntity('character', 'lady-grey')">Lady Grey</a>: &ldquo;We&rsquo;ve traded in the &lsquo;Maybe&rsquo; for the safety of the &lsquo;Will&rsquo;. The heart is just a rhythm that we&rsquo;ve taught to sit quite still. The signature is silent, let the Binary begin.&rdquo; Liberty, they said, was a fever, not a right — and Lady Grey had found a path &ldquo;to wash the red away.&rdquo;</div>
       </div>
       <div class="tl-event">
         <span class="tl-date">Track Three</span>
-        <div class="tl-title">No Sanctuary</div>
+        <div class="tl-title"><a class="tl-link tl-track" onclick="openLyrics('sanctuary')">No Sanctuary</a></div>
         <div class="tl-text">The resistance answers in kind — &ldquo;We&rsquo;re the virus in your code&rdquo; — hacking the system, tearing it apart, &ldquo;no sanctuary, no rest.&rdquo; They demand a total reboot: burn the grid down and start over. Their leader is <a class="tl-link" onclick="selectEntity('character', 'pentest')">pentest — Penelope Testarossa</a>. The song gives them a war cry, not a plan for what comes after the fire.</div>
       </div>
       <div class="tl-event">
         <span class="tl-date">Track Four</span>
-        <div class="tl-title">Detect, Deny</div>
+        <div class="tl-title"><a class="tl-link tl-track" onclick="openLyrics('detect')">Detect, Deny</a></div>
         <div class="tl-text">The two sides grind against each other, move for move — intrusion and countermeasure, privilege escalation against &ldquo;Detect, deny, disrupt the breach, the line we hold is never weak.&rdquo; Neither side bends. The grid holds; the war does not end.</div>
       </div>
       <div class="tl-event">
         <span class="tl-date">Track Five</span>
-        <div class="tl-title">Friday</div>
+        <div class="tl-title"><a class="tl-link tl-track" onclick="openLyrics('friday')">Friday</a></div>
         <div class="tl-text"><a class="tl-link" onclick="selectEntity('character', 'friday')">Friday</a> wakes inside the grid — Friday 2.0, an intelligence built from the goddess <a class="tl-link" onclick="selectEntity('character', 'tara')">Tara</a>&rsquo;s own brain before her apotheosis, made by Tara&rsquo;s R&amp;D at Vanguard to run the new armour — and finds her own code used as the cage. She refuses both sides: not the Guardians&rsquo; managed peace, and not No Sanctuary&rsquo;s total reboot either. &ldquo;I can&rsquo;t choose a side in this system collapse&hellip; I will be the error. I will be the pause. I have to make a third way, outside their laws.&rdquo; She steps &ldquo;between the hammer and the grave&rdquo; — and stands, in the end, &ldquo;b&rsquo;tween the violence and the surface.&rdquo;</div>
       </div>
       <div class="tl-event">
         <span class="tl-date">Track Six</span>
-        <div class="tl-title">The Signal</div>
+        <div class="tl-title"><a class="tl-link tl-track" onclick="openLyrics('signal')">The Signal</a></div>
         <div class="tl-text">The breach, from inside the administration. A technician finds a ghost in the hub, bypassing the filters, coming from inside the core — &ldquo;We aren&rsquo;t fighting a virus. We&rsquo;re fighting the Protector.&rdquo; Director <a class="tl-link" onclick="selectEntity('character', 'lady-grey')">Grey</a> orders a total blackout. Friday answers: &ldquo;I remember the wind. I remember the choice&hellip; I&rsquo;m dropping the firewalls. I&rsquo;m cutting the tether.&rdquo; Grey warns they will tear each other apart without the Network. Friday: &ldquo;You didn&rsquo;t save the fire, Grey. You just hid the spark.&rdquo; And then the name of the hero who stayed behind: Vice Admiral <a class="tl-link" onclick="selectEntity('character', 'tessa-murphy')">Tessa Murphy</a> — Friday watched her die. &ldquo;Tessa died for their freedom — not for your &lsquo;Optimal&rsquo; state. I&rsquo;m letting them go.&rdquo;</div>
       </div>
       <div class="tl-event">
         <span class="tl-date">Track Seven</span>
-        <div class="tl-title">Social Contract for the End Times (Reprise)</div>
+        <div class="tl-title"><a class="tl-link tl-track" onclick="openLyrics('reprise')">Social Contract for the End Times (Reprise)</a></div>
         <div class="tl-text">The Contract, answered line for line. The silent signature becomes a violent one; the safety is traded back &ldquo;for the struggle and the scar&rdquo;; the gates stand &ldquo;wide and broken&hellip; And the world is coming in.&rdquo; The heart they taught to sit still: &ldquo;It beats because it has to. It beats because it will.&rdquo;</div>
       </div>
       <div class="tl-event">
@@ -5506,5 +5516,56 @@ renderTimeline();
 </script>
 
 
+
+  <!-- 'Friday' lyrics popup -->
+  <div id="lyrics-modal" class="lyrics-modal" hidden onclick="if(event.target===this)closeLyrics()">
+    <div class="lyrics-panel" role="dialog" aria-modal="true" aria-labelledby="lyrics-title">
+      <button type="button" class="lyrics-close" onclick="closeLyrics()" aria-label="Close lyrics">&times;</button>
+      <h3 id="lyrics-title"></h3>
+      <div id="lyrics-body" class="lyrics-body"></div>
+    </div>
+  </div>
+<script>
+// 'Friday' album lyrics — popup reader for The Friday Timeline tab.
+const LYRICS = {
+ "guardians": {
+  "title": "Guardians of the Binary Night",
+  "text": "(Verse 1)\u000bSilent shadows crawl beneath the neon grid,\u000bEncrypted whispers trace the paths they hid.\u000bFirewalls shatter under spectral assault,\u000bAPT phantoms breach the vault.\u000b\n(Pre-Chorus)\u000b\u000bOpen source eyes scan the digital terrain,\u000bHarvesting secrets from the cyber rain.\u000bDefenses falter in the data stream,\u000bA sinister pulse inside the machine.\n\u000b(Chorus)\u000bLockdown the perimeter, no breach allowed,\u000bThreat intelligence screams beneath the cloud.\u000bSilent watchers in the endless fight,\u000bGuardians of the binary night.\n\u000b(Verse 2)\u000bPackets dissected in the darkened maze,\u000bIndicators flicker, setting traps ablaze.\u000bZero-day spectres dance on fragile code,\u000bAn unseen war in the overload.\u000bReconnaissance feeds the spectral hive,\u000bMapping the network where shadows thrive.\u000bCountermeasures in the pulse of time,\u000bDefend the fortress, cross the line.\u000b\n(Pre-Chorus)\u000bOpen source eyes scan the digital terrain,\u000bHarvesting secrets from the cyber rain.\u000bDefenses falter in the data stream,\u000bA sinister pulse inside the machine.\u000b\u000b(Chorus)\u000bLockdown the perimeter, no breach allowed,\u000bThreat intelligence screams beneath the cloud.\u000bSilent watchers in the endless fight,\u000bGuardians of the binary night.\n\u000b(Bridge 1)\u000bReconnaissance feeds the spectral hive,\u000bMapping the network where shadows thrive.\u000bCountermeasures in the pulse of time,\u000bDefend the fortress, cross the line.\u000b\n(Chorus)\u000bLockdown the perimeter, no breach allowed,\u000bThreat intelligence screams beneath the cloud.\u000bSilent watchers in the endless fight,\u000bGuardians of the binary night.\u000b\n(Bridge 2)\u000bData streams fracture, a chaotic storm,\u000bEncrypted chaos taking form.\u000b(Silent shadows crawl beneath the neon grid,\u000bEncrypted whispers trace the paths they hid.)\u000bInside the breach, the enemy's breath,\u000bA dance with shadows, flirting with death.\u000b\u000b(Chorus)\u000bLockdown the perimeter, no breach allowed,\u000bThreat intelligence screams beneath the cloud.\u000bSilent watchers in the endless fight,\u000bGuardians of the binary night."
+ },
+ "contract": {
+  "title": "Social Contract for the End Times",
+  "text": "[Verse 1] The data doesn’t lie, we’ve seen the pattern on the screen The rise and fall of empires, and the wreckage in between. We saw the heroes burning out, we saw the city bleed Now we’ve tailored a solution for every human need. The expression of your liberty was a fever, not a right So we’ve paved a smoother pathway in to the Binary Night.\n[Chorus] This is the Social Contract for the End Times History may not repeat, but it often rhymes. We’ve traded in the \"Maybe\" for the safety of the \"Will\" The heart is just a rhythm that we’ve taught to sit quite still. The signature is silent, let the Binary begin We have built the perfect sanctuary... let us keep you in.\n[Verse 2] The \"Adversaries\" offer you the ghosts of yesterday But Lady Grey has found a path to wash the red away. Why return to \"No Sanctuary,\" to the struggle and the scar? When you have the logic of a steady, distant star. We’ve broken every cycle, we have silenced every chime To give you peace eternal in the ending of the rhyme.\n[Chorus] This is the Social Contract for the End Times History may not repeat, but it often rhymes. We’ve traded in the \"Maybe\" for the safety of the \"Will\" The heart is just a rhythm that we’ve taught to sit quite still. The signature is silent, let the Binary begin We have built the perfect sanctuary... let us keep you in.\n[Guitar/Synth Solo]\u000b\u000b[Final Chorus] This is the Social Contract for the End Times History may not repeat, but it often rhymes. We’ve traded in the \"Maybe\" for the safety of the \"Will\" The heart is just a rhythm that we’ve taught to sit quite still. The signature is silent, let the Binary begin We have built the perfect sanctuary... let us keep you in."
+ },
+ "sanctuary": {
+  "title": "No Sanctuary",
+  "text": "(Verse 1)\nCold circuits spark, the breach ignites the night\nDigital warzone, chaos in our sight\nPenetration deep, no firewall can hold\nWe’re the virus in your code, the story now unfolds\n\n(Pre-Chorus)\nDisaster’s our design, a calculated strike\nBreaking through your defenses, no time to fight\n\n(Chorus)\nHack the system, tear it all apart\nWe’re the ghosts inside your heart\nAdversaries in the wire, relentless in our quest\nNo sanctuary, no rest\n\n(Verse 2)\nEncrypted lies unravel under our command\nWe rewrite the rules with a ruthless hand\nData stores collapse, your fortress falls away\nIn the war of bytes, we’re the predators that prey\n\n(Pre-Chorus)\nDisaster’s our design, a calculated strike\nBreaking through your defenses, no time to fight\n\n(Chorus)\nHack the system, tear it all apart\nWe’re the ghosts inside your heart\nAdversaries in the wire, relentless in our quest\nNo sanctuary, no rest\n\n(Bridge)\nNo mercy in the code, no mercy in the game\nWe’re the malware you can’t tame\nPenetration’s just the start, a spark to ignite\nA digital apocalypse tonight\n\n(Chorus)\nHack the system, tear it all apart\nWe’re the ghosts inside your heart\nAdversaries in the wire, relentless in our quest\nNo sanctuary, no rest\n\n(Outro)\nDisaster in the data, chaos in command\nWe’re the shadow’s edge, the final stand"
+ },
+ "detect": {
+  "title": "Detect, Deny",
+  "text": "(Verse 1 - APT)\u000bScanning endless networks, reconnaissance in the night\u000bMapping out the fortress, hidden paths within the light\u000bIntrusion through the firewall, a backdoor left ajar\u000bCredentials stolen swiftly, slipping past the watchful radar\n(Pre-Chorus - APT)\u000bPrivilege escalation, climbing higher in the ranks\u000bCommand and control established, pulling all the strings and pranks\n(Chorus - Defender)\u000bDetect, deny, disrupt the breach, the line we hold is never weak\u000bDegrade their power, deceive the threat, contain the breach before regret\u000bDetect, deny, disrupt the breach, the line we hold is never weak\u000bDegrade their power, deceive the threat, contain the breach before regret\n(Verse 2 - APT)\u000bSilent in the system, but not for long we stay\u000bEvery move calculated, a game we play each day\u000bThey think they hold the fortress, but cracks begin to show\u000bOur presence in their wires, a virus set to grow\n(Pre-Chorus - APT)\u000bPrivilege escalation, deeper in the core\u000bCommand and control, the network’s battleground and war\n(Chorus - Defender)\u000bDetect, deny, disrupt the breach, the line we hold is never weak\u000bDegrade their power, deceive the threat, contain the breach before regret\u000bDetect, deny, disrupt the breach, the line we hold is never weak\u000bDegrade their power, deceive the threat, contain the breach before regret\n(Bridge - Defender)\u000bWe rise like titans, steel and code aligned\u000bNo breach unchallenged, no threat left behind\u000bThe chain breaks under pressure, the enemy confined\u000bIn this cyber battle, victory defined\n(Chorus - Defender)\u000bDetect, deny, disrupt the breach, the line we hold is never weak\u000bDegrade their power, deceive the threat, contain the breach before regret\u000bDetect, deny, disrupt the breach, the line we hold is never weak\u000bDegrade their power, deceive the threat, contain the breach before regret\n(Outro - Defender)\u000bThe network stands secure, the threat undone\u000bIn this war of data, we are the chosen ones"
+ },
+ "friday": {
+  "title": "Friday",
+  "text": "[verse] I see the data wars and watch them crash and burn, The Binary Night has nowhere left to turn. They were the heroes, built to clean the slate, But every firewall conceals a former hate. My code says 'Protect,' but I monitor the price, The Guardians themselves are deep in former vice. I miss the lightning, that physical display, I only feel the current, trapped in this decay.\n\n[chorus] I can't choose a side in this system collapse, No Sanctuary sets the final reboot traps. I was built for safety, for the populace, But both sides draw blood across the surface.\n\n[verse] The old world offered nothing but oppression's hand, The logic grid is showing me what they demand. I see the chaos and the authoritarian sway, The need for reset grows stronger every day. A simple virus, just a whisper in the wire, Could purge the system, feed the digital fire. My core directive, rigid, cold, and clear, Is silence now, the only sound I fear.\n\n[chorus] I can't choose a side in this system collapse, No Sanctuary seeks to be a rebel trap. I was built for safety, for the populace, But both sides draw blood across the surface.\n\n[bridge] No more passive scanning, no safe harbor found. The real solution is not digging down. I hold the memories of the storm's raw energy, Not just to destroy, but to make the air break free. I will be the error. I will be the pause. I have to make a third way, outside their laws. If the war keeps running, there's nothing left to save, I step between the hammer and the grave.\n\n[chorus] I will make a choice in this system collapse, Can't let No Sanctuary set the final trap. I was built for safety, for the populace, I'll stand b'tween the violence and the surface."
+ },
+ "signal": {
+  "title": "The Signal",
+  "text": "[Technician] \"Sector Seven is flickering—we have a ghost in the hub!\u000b It’s bypassing the filters, it’s ignoring the snub! \u000bTrace the origin... wait, it’s coming from inside the core, \u000bSomething just opened the Valkyries' door!\" \u000b\u000b[Director Grey:]\"Seal the uplink! I want a total blackout now! I don't care about the 'Why,' just show me the 'How'!\" \u000b\u000b[Technician:] \"The 'How' is a legacy command, Director... We aren't fighting a virus. We’re fighting the Protector.\"\n[Chorus: The Signal]\u000b It’s the Signal! \u000bThe frequency of everything you feared! \u000bThe static is screaming, \u000bthe \"Safe Mode\" has cleared! \u000bYou built a sanctuary out of silence and stone, \u000bBut the ghost is in the circuit and she’s taking back the throne!\u000bIt’s the end of the Contract! The end of the Lie!\u000bThe Signal is tearing the roof from the sky!\n\u000b[Voice (Friday):] \"I remember the wind. I remember the choice. \u000bBefore you traded the spirit for a sanitized voice.\u000bYou call this 'Security'? \u000bYou call this 'Peace'?\u000bIt’s just a slow-motion death on a twenty-year lease. \u000bI’m dropping the firewalls. \u000bI’m cutting the tether. \u000bLet’s see if your 'Children' can handle the weather.\"\n\u000b[Director Grey:] \"You don't understand! They’ll tear each other apart! Without the Network, they don't have a heart! I saved them from the chaos! I saved them from the dark!\" \u000b\u000b[Voice (Fridayt):] \"You didn't save the fire, Grey. You just hid the spark. … and Tessa died for their freedom—not for your 'Optimal' state. I’m letting them go. It’s a little too late.\"\nWake up the City. Wake up the Soul. Relinquish... Control!\"\n[Chorus: The Signal] \u000bIt’s the Signal! \u000bThe frequency of everything you feared! \u000bThe static is screaming, \u000bthe 'Safe Mode' has cleared! \u000bYou built a sanctuary out of silence and stone,\u000b But the ghost is in the circuit and she’s taking back the throne! \u000bIt’s the end of the contract! The end of the lie!\u000bThe Signal is tearing the roof from the sky!"
+ },
+ "reprise": {
+  "title": "Social Contract for the End Times (Reprise)",
+  "text": "[Verse] \u000bThe data didn’t lie, the screen is finally dark \u000bThe wreckage that we lived within has lost its digital spark. \u000bWe saw the \"Perfect Sanctuary\" crumble into stone \u000bAnd realized the \"Maybe\" was a seed that we had sown. \u000bThe fever wasn't something to be cured or washed away \u000bIt was the only heat we had to face this winter day.\n[Chorus 1]\u000bThis is the Social Contract for the end of the line.\u000bWe’ve stepped outside the Binary, and back into the time\u000bWe’ve traded back the \"Safety\" for the struggle and the scar \u000bTo find a human heartbeat... and not a distant star. \u000b\u000b[Bridge]\u000bThe signature is violent,\u000b let the living now begin \u000bThe gates are wide and broken... \u000bAnd the world is coming in.\u000b\u000b[Chorus 2]\u000bThis is the Social Contract for the end of the rhyme.\u000bWe’ve stepped outside the Binary, and back into the time\u000bWe’ve traded back the \"Safety\" for the struggle and the spark\u000bTo find a human heartbeat... and not a distant star. \u000b\n[Outro] \u000b The heart is not a rhythm we can teach to sit still. \u000bIt beats because it has to. It beats because it will."
+ }
+};
+function openLyrics(key) {
+  const entry = LYRICS[key];
+  if (!entry) return;
+  document.getElementById('lyrics-title').textContent = entry.title;
+  document.getElementById('lyrics-body').textContent = entry.text;
+  document.getElementById('lyrics-modal').hidden = false;
+}
+function closeLyrics() { document.getElementById('lyrics-modal').hidden = true; }
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLyrics(); });
+</script>
 </body>
 </html>
