@@ -974,12 +974,13 @@ td.mono-cell {
   .tl-link { color: var(--primary); font-weight: 600; text-decoration: underline dotted; text-underline-offset: 3px; cursor: pointer; }
   .tl-link:hover { filter: brightness(1.3); }
   /* Layout — tabbed atlas with a permanent inspector column */
-  .ww-layout { display: grid; grid-template-columns: minmax(0, 1fr) 400px; gap: 18px; align-items: stretch; margin-top: 18px; }
+  .ww-layout { display: grid; grid-template-columns: minmax(0, 1fr); gap: 18px; align-items: stretch; margin-top: 18px; }
   .ww-main { min-width: 0; }
   .ww-main > * { margin-bottom: 18px; }
   .ww-side { position: relative; min-width: 0; }
   .ww-side .inspector-panel { margin: 0; position: sticky; top: 14px; height: calc(100vh - 28px); max-height: calc(100vh - 28px); }
   .panel .ww-tabbar { margin-top: var(--space-md); }
+  .ww-tab-page .inspector-panel { position: static; height: auto; max-height: none; margin: 18px 0 0; }
   .ww-tabbar { display: flex; gap: 10px; flex-wrap: wrap; margin: 0 0 16px; }
   .ww-tab { appearance: none; border: 1px solid var(--brass-border); background: var(--surface-container); color: inherit; font: inherit; font-weight: 700; letter-spacing: 0.05em; padding: 10px 22px; border-radius: 999px; cursor: pointer; box-shadow: var(--panel-highlight); }
   .ww-tab:hover { filter: brightness(1.2); }
@@ -5448,11 +5449,12 @@ renderTimeline();
   layout.className = 'ww-layout';
   const mainCol = document.createElement('div');
   mainCol.className = 'ww-main';
-  const sideCol = document.createElement('div');
-  sideCol.className = 'ww-side';
-  sideCol.appendChild(inspector);
   layout.appendChild(mainCol);
-  layout.appendChild(sideCol);
+  const park = document.createElement('div');
+  park.id = 'ww-inspector-park';
+  park.style.display = 'none';
+  mainCol.appendChild(park);
+  park.appendChild(inspector);
 
   const tabbar = document.createElement('div');
   tabbar.className = 'ww-tabbar';
@@ -5498,6 +5500,7 @@ renderTimeline();
       page.hidden = k !== key;
       buttons[k].setAttribute('aria-selected', k === key ? 'true' : 'false');
     });
+    pages[key].appendChild(inspector);
     if (pushHash) { try { history.replaceState(null, '', '#' + key); } catch (e) {} }
   }
   function closeTabs(pushHash) {
@@ -5506,10 +5509,22 @@ renderTimeline();
       page.hidden = true;
       buttons[k].setAttribute('aria-selected', 'false');
     });
+    park.appendChild(inspector);
     if (pushHash) { try { history.replaceState(null, '', location.pathname + location.search); } catch (e) {} }
   }
   window.switchTab = switchTab;
   const start = ['map', 'factions', 'timeline', 'alternate', 'reference', 'registry'].includes((location.hash || '').slice(1)) ? location.hash.slice(1) : null;
+
+  ['selectEntity', 'focusFaction'].forEach((name) => {
+    const orig = window[name];
+    if (typeof orig === 'function') {
+      window[name] = function () {
+        const r = orig.apply(this, arguments);
+        if (inspector.offsetParent !== null) inspector.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        return r;
+      };
+    }
+  });
   if (start) switchTab(start, false); else closeTabs(false);
 })();
 
