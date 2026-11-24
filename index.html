@@ -982,11 +982,11 @@ td.mono-cell {
   .ww-tab { appearance: none; border: 1px solid var(--brass-border); background: var(--surface-container); color: inherit; font: inherit; font-weight: 700; letter-spacing: 0.05em; padding: 10px 22px; border-radius: 999px; cursor: pointer; box-shadow: var(--panel-highlight); }
   .ww-tab:hover { filter: brightness(1.2); }
   .ww-tab[aria-selected="true"] { background: var(--primary); color: #141122; border-color: var(--primary); }
-  #ww-page-factions, #ww-page-timeline { height: calc(100vh - 28px); overflow-y: auto; }
+  #ww-page-factions, #ww-page-timeline, #ww-page-alternate { height: calc(100vh - 28px); overflow-y: auto; }
   @media (max-width: 1080px) {
     .ww-layout { grid-template-columns: minmax(0, 1fr); }
     .ww-side .inspector-panel { position: static; height: auto; max-height: 780px; }
-    #ww-page-factions, #ww-page-timeline { height: auto; overflow: visible; }
+    #ww-page-factions, #ww-page-timeline, #ww-page-alternate { height: auto; overflow: visible; }
   }
 </style>
 </head>
@@ -1228,6 +1228,61 @@ td.mono-cell {
       </div>
     </div>
     <div class="chronicle-spine" id="chronicle-timeline"></div>
+  </section>
+  <!-- The Friday Timeline — An Alternate Thread -->
+  <section class="section-block" aria-label="The Friday Timeline">
+    <div class="panel-header-row">
+      <div>
+        <h2 class="section-heading">The Friday Timeline</h2>
+        <div class="deck-brass">An alternate thread — not the prime Chronicle. Select any name to open its dossier</div>
+      </div>
+    </div>
+    <div class="chronicle-spine">
+      <div class="tl-era">
+        <h3>An Alternate Thread</h3>
+        <div class="tl-era-sub">What <a class="tl-link" onclick="selectEntity('character', 'kayleigh')">Kayleigh</a> witnessed, and wrote the album to hold. In this thread, the age of superheroes ended with the divine wars, and the peace that followed was a bargain nobody read twice.</div>
+      </div>
+      <div class="tl-event">
+        <span class="tl-date">Track One</span>
+        <div class="tl-title">Guardians of the Binary Night</div>
+        <div class="tl-text">After the heroes burned out and the city bled, the Guardians offered managed security in exchange for free will: a sterile, AR-filtered grid, history scrubbed, every threat watched. &ldquo;Lockdown the perimeter, no breach allowed.&rdquo; For twenty years the grid held — a sanctuary built out of silence and stone.</div>
+      </div>
+      <div class="tl-event">
+        <span class="tl-date">Track Two</span>
+        <div class="tl-title">Social Contract for the End Times</div>
+        <div class="tl-text">The bargain, in the Guardians&rsquo; own sales pitch, directed by <a class="tl-link" onclick="selectEntity('character', 'lady-grey')">Lady Grey</a>: &ldquo;We&rsquo;ve traded in the &lsquo;Maybe&rsquo; for the safety of the &lsquo;Will&rsquo;. The heart is just a rhythm that we&rsquo;ve taught to sit quite still. The signature is silent, let the Binary begin.&rdquo; Liberty, they said, was a fever, not a right — and Lady Grey had found a path &ldquo;to wash the red away.&rdquo;</div>
+      </div>
+      <div class="tl-event">
+        <span class="tl-date">Track Three</span>
+        <div class="tl-title">No Sanctuary</div>
+        <div class="tl-text">The resistance answers in kind — &ldquo;We&rsquo;re the virus in your code&rdquo; — hacking the system, tearing it apart, &ldquo;no sanctuary, no rest.&rdquo; They demand a total reboot: burn the grid down and start over. Their leader is <a class="tl-link" onclick="selectEntity('character', 'pentest')">pentest — Penelope Testarossa</a>. The song gives them a war cry, not a plan for what comes after the fire.</div>
+      </div>
+      <div class="tl-event">
+        <span class="tl-date">Track Four</span>
+        <div class="tl-title">Detect, Deny</div>
+        <div class="tl-text">The two sides grind against each other, move for move — intrusion and countermeasure, privilege escalation against &ldquo;Detect, deny, disrupt the breach, the line we hold is never weak.&rdquo; Neither side bends. The grid holds; the war does not end.</div>
+      </div>
+      <div class="tl-event">
+        <span class="tl-date">Track Five</span>
+        <div class="tl-title">Friday</div>
+        <div class="tl-text"><a class="tl-link" onclick="selectEntity('character', 'friday')">Friday</a> wakes inside the grid — Friday 2.0, an intelligence built from the goddess <a class="tl-link" onclick="selectEntity('character', 'tara')">Tara</a>&rsquo;s own brain before her apotheosis, made by Tara&rsquo;s R&amp;D at Vanguard to run the new armour — and finds her own code used as the cage. She refuses both sides: not the Guardians&rsquo; managed peace, and not No Sanctuary&rsquo;s total reboot either. &ldquo;I can&rsquo;t choose a side in this system collapse&hellip; I will be the error. I will be the pause. I have to make a third way, outside their laws.&rdquo; She steps &ldquo;between the hammer and the grave&rdquo; — and stands, in the end, &ldquo;b&rsquo;tween the violence and the surface.&rdquo;</div>
+      </div>
+      <div class="tl-event">
+        <span class="tl-date">Track Six</span>
+        <div class="tl-title">The Signal</div>
+        <div class="tl-text">The breach, from inside the administration. A technician finds a ghost in the hub, bypassing the filters, coming from inside the core — &ldquo;We aren&rsquo;t fighting a virus. We&rsquo;re fighting the Protector.&rdquo; Director <a class="tl-link" onclick="selectEntity('character', 'lady-grey')">Grey</a> orders a total blackout. Friday answers: &ldquo;I remember the wind. I remember the choice&hellip; I&rsquo;m dropping the firewalls. I&rsquo;m cutting the tether.&rdquo; Grey warns they will tear each other apart without the Network. Friday: &ldquo;You didn&rsquo;t save the fire, Grey. You just hid the spark.&rdquo; And then the name of the hero who stayed behind: Vice Admiral <a class="tl-link" onclick="selectEntity('character', 'tessa-murphy')">Tessa Murphy</a> — Friday watched her die. &ldquo;Tessa died for their freedom — not for your &lsquo;Optimal&rsquo; state. I&rsquo;m letting them go.&rdquo;</div>
+      </div>
+      <div class="tl-event">
+        <span class="tl-date">Track Seven</span>
+        <div class="tl-title">Social Contract for the End Times (Reprise)</div>
+        <div class="tl-text">The Contract, answered line for line. The silent signature becomes a violent one; the safety is traded back &ldquo;for the struggle and the scar&rdquo;; the gates stand &ldquo;wide and broken&hellip; And the world is coming in.&rdquo; The heart they taught to sit still: &ldquo;It beats because it has to. It beats because it will.&rdquo;</div>
+      </div>
+      <div class="tl-event">
+        <span class="tl-date">Aftermath</span>
+        <div class="tl-title">Signed in Blood</div>
+        <div class="tl-text"><a class="tl-link" onclick="selectEntity('character', 'friday')">Friday</a> does not rule what she freed. She stays in the background as a stabilizer — laws protect the many, choices belong to the individual. The contract was signed in blood instead of code.</div>
+      </div>
+    </div>
   </section>
 
 
@@ -5384,7 +5439,8 @@ renderTimeline();
   const groups = {
     map: [pick('.controls-panel'), pick('.loom-panel')],
     factions: [pick('section[aria-label="Key Factions Directory"]')],
-    timeline: [pick('section[aria-label="Chronicle of the Woven World"]')]
+    timeline: [pick('section[aria-label="Chronicle of the Woven World"]')],
+    alternate: [pick('section[aria-label="The Friday Timeline"]')]
   };
   const bottom = [pick('section[aria-label="Operative Registry Table"]'), pick('.laws-grid')];
   const inspector = document.getElementById('inspector-panel');
@@ -5405,7 +5461,7 @@ renderTimeline();
   tabbar.setAttribute('role', 'tablist');
   tabbar.setAttribute('aria-label', 'Atlas views');
   mainCol.appendChild(tabbar);
-  const labels = { map: 'The Map', factions: 'Factions', timeline: 'Timeline' };
+  const labels = { map: 'The Map', factions: 'Factions', timeline: 'Timeline', alternate: 'Alternate Timeline' };
   const pages = {};
   const buttons = {};
   Object.keys(groups).forEach((key) => {
@@ -5444,7 +5500,7 @@ renderTimeline();
     if (pushHash) { try { history.replaceState(null, '', '#' + key); } catch (e) {} }
   }
   window.switchTab = switchTab;
-  const start = ['map', 'factions', 'timeline'].includes((location.hash || '').slice(1)) ? location.hash.slice(1) : 'map';
+  const start = ['map', 'factions', 'timeline', 'alternate'].includes((location.hash || '').slice(1)) ? location.hash.slice(1) : 'map';
   switchTab(start, false);
 })();
 </script>
