@@ -1121,29 +1121,6 @@ td.mono-cell {
     </p>
   </section>
 
-  <!-- Top KPI Strip -->
-  <section class="kpi-strip" aria-label="Universe Telemetry">
-    <div class="panel kpi-card">
-      <span class="muted-label">Mapped Powers</span>
-      <span class="kpi-value" id="kpi-factions">12</span>
-      <span class="kpi-note">The Powers of the Woven World</span>
-    </div>
-    <div class="panel kpi-card">
-      <span class="muted-label">Indexed Entities</span>
-      <span class="kpi-value" id="kpi-entities">132</span>
-      <span class="kpi-note is-mint" id="kpi-visible-note">132 matching current filter</span>
-    </div>
-    <div class="panel kpi-card">
-      <span class="muted-label">Sovereign Check</span>
-      <span class="kpi-value">Duel-Lock</span>
-      <span class="kpi-note is-brass">No Time Keeper // Throgg Comatose</span>
-    </div>
-    <div class="panel kpi-card">
-      <span class="muted-label">Chronal Dilation</span>
-      <span class="kpi-value">1 : 10</span>
-      <span class="kpi-note is-coral">1 yr Earth = 10 yrs Bailetaraan</span>
-    </div>
-  </section>
 
   <!-- Filter & Search Controls -->
   <section class="panel controls-panel" aria-label="Filter and Search Controls">
@@ -5456,7 +5433,7 @@ renderTimeline();
   if (!main) return;
   const pick = (sel) => document.querySelector(sel);
   const groups = {
-    map: [pick('.controls-panel'), pick('.loom-panel'), pick('.kpi-strip')],
+    map: [pick('.controls-panel'), pick('.loom-panel')],
     factions: [pick('section[aria-label="Key Factions Directory"]')],
     timeline: [pick('section[aria-label="The Story So Far"]'), pick('section[aria-label="Chronicle of the Woven World"]')],
     alternate: [pick('section[aria-label="The Friday Timeline"]')],
