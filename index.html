@@ -1121,6 +1121,23 @@ td.mono-cell {
     </p>
   </section>
 
+  <!-- Start Here — Orientation -->
+  <section class="panel" aria-label="Start Here">
+    <span class="muted-label">Start Here — New to the Woven World?</span>
+    <p class="hero-lede" style="max-width: 92ch;">
+      This atlas holds twelve powers, 132 indexed lives, twelve thousand years of chronicle, and one alternate thread. You do not have to drink the ocean. Pick a door:
+    </p>
+    <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:6px;">
+      <button type="button" class="btn is-primary" onclick="goTab('factions')">Meet the Powers — the twelve factions</button>
+      <button type="button" class="btn" onclick="goTab('timeline')">Read the Chronicle — twelve thousand years</button>
+      <button type="button" class="btn" onclick="goTab('alternate')">The Friday Timeline — the album, track by track</button>
+      <button type="button" class="btn" onclick="goTab('map')">The Weave — every thread on one loom</button>
+    </div>
+    <p class="hero-lede" style="max-width: 92ch; margin-top:10px;">
+      Wherever you begin: select any name, anywhere on this page, and its dossier opens beside you.
+    </p>
+  </section>
+
   <!-- Top KPI Strip -->
   <section class="kpi-strip" aria-label="Universe Telemetry">
     <div class="panel kpi-card">
@@ -1316,8 +1333,9 @@ td.mono-cell {
         <div class="deck-brass">Tabular index of indexed entities, powersets, geas status, and shadow vectors</div>
       </div>
       <span class="badge is-mint" id="table-count-badge">44 Entries</span>
+      <button type="button" class="btn" onclick="toggleSection('registry-table-wrap', this, 'the index')">Show the index</button>
     </div>
-    <div class="table-wrap" id="registry-table-wrap">
+    <div class="table-wrap" id="registry-table-wrap" style="display:none">
       <table>
         <thead>
           <tr>
@@ -1338,7 +1356,14 @@ td.mono-cell {
   </section>
 
   <!-- Metaphysical Rules & Active Crises Reference -->
-  <section class="laws-grid" aria-label="Fae Law and Active Crises">
+  <div class="panel-header-row" style="margin-top: var(--space-lg);">
+    <div>
+      <h2 class="section-heading">Reference — Fae Law &amp; Active Crises</h2>
+      <div class="deck-brass">The rules of the world and the fires currently burning — folded until you need them</div>
+    </div>
+    <button type="button" class="btn" onclick="toggleSection('laws-grid', this, 'the reference')">Show the reference</button>
+  </div>
+  <section class="laws-grid" id="laws-grid" style="display:none" aria-label="Fae Law and Active Crises">
     <div class="panel">
       <h2 class="section-heading">Fae Law as Metaphysical Physics</h2>
       <div class="deck-brass">Canonical Mechanics Governing All Courts</div>
@@ -5520,6 +5545,19 @@ renderTimeline();
   const start = ['map', 'factions', 'timeline', 'alternate'].includes((location.hash || '').slice(1)) ? location.hash.slice(1) : 'map';
   switchTab(start, false);
 })();
+
+function goTab(key) {
+  if (window.switchTab) switchTab(key, true);
+  const bar = document.querySelector('.ww-tabbar');
+  if (bar) bar.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+function toggleSection(id, btn, label) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  const show = el.style.display === 'none';
+  el.style.display = show ? '' : 'none';
+  if (btn) btn.textContent = (show ? 'Hide ' : 'Show ') + label;
+}
 </script>
 
 
