@@ -1084,7 +1084,7 @@ td.mono-cell {
         <h1 class="title">The <em>Woven World</em></h1>
         <div class="deck-brass">Multiversal Faction, Lineage &amp; Geas Cartography // Canonical Atlas</div>
         <p class="hero-lede">
-          Interactive intelligence dossier mapping the twelve powers of the Woven World — the Storm Court, the fallen Conclave, the House of Monaco and other independent enclaves among them. Select any faction hub, operative node, or table entry to inspect powersets, binding geases, bloodline echoes, and hidden allegiances.
+          Interactive intelligence dossier mapping the twelve powers of the Woven World — the Storm Court, the fallen Conclave, the House of Monaco and other independent enclaves among them.
         </p>
       </div>
       <div class="epoch-readout">
@@ -5463,9 +5463,9 @@ renderTimeline();
   if (!main) return;
   const pick = (sel) => document.querySelector(sel);
   const groups = {
-    map: [pick('.controls-panel'), pick('.loom-panel')],
+    map: [pick('.controls-panel'), pick('.loom-panel'), pick('.kpi-strip')],
     factions: [pick('section[aria-label="Key Factions Directory"]')],
-    timeline: [pick('section[aria-label="Chronicle of the Woven World"]')],
+    timeline: [pick('section[aria-label="The Story So Far"]'), pick('section[aria-label="Chronicle of the Woven World"]')],
     alternate: [pick('section[aria-label="The Friday Timeline"]')]
   };
   const bottom = [pick('section[aria-label="Operative Registry Table"]'), pick('.laws-grid')];
