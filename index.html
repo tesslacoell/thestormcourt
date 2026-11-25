@@ -980,11 +980,11 @@ td.mono-cell {
   .ww-side { position: relative; min-width: 0; }
   .ww-side .inspector-panel { margin: 0; position: sticky; top: 14px; height: calc(100vh - 28px); max-height: calc(100vh - 28px); }
   .panel .ww-tabbar { margin-top: var(--space-md); }
-  .ww-tab-page { display: grid; grid-template-columns: 400px minmax(0, 1fr); gap: 18px; align-items: start; }
+  .ww-tab-page { display: grid; grid-template-columns: 400px minmax(0, 1fr); gap: 18px; align-items: stretch; height: calc(100vh - 28px); }
   .ww-tab-page[hidden] { display: none; }
-  .ww-page-content { min-width: 0; }
+  .ww-page-content { min-width: 0; min-height: 0; }
   .ww-page-content > * + * { margin-top: 18px; }
-  .ww-tab-page .inspector-panel { position: sticky; top: 14px; max-height: calc(100vh - 28px); margin: 0; }
+  .ww-tab-page .inspector-panel { position: static; height: 100%; max-height: none; min-height: 0; margin: 0; }
   .ww-tabbar { display: flex; gap: 10px; flex-wrap: wrap; margin: 0 0 16px; }
   .ww-tab { appearance: none; border: 1px solid var(--brass-border); background: var(--surface-container); color: inherit; font: inherit; font-weight: 700; letter-spacing: 0.05em; padding: 10px 22px; border-radius: 999px; cursor: pointer; box-shadow: var(--panel-highlight); }
   .ww-tab:hover { filter: brightness(1.2); }
@@ -999,12 +999,12 @@ td.mono-cell {
   .tl-track { cursor: pointer; }
 
   .ww-tab[aria-selected="true"] { background: var(--primary); color: #141122; border-color: var(--primary); }
-  #ww-page-factions, #ww-page-timeline, #ww-page-alternate, #ww-page-reference, #ww-page-registry { height: calc(100vh - 28px); overflow-y: auto; }
+  #ww-page-factions, #ww-page-timeline, #ww-page-alternate, #ww-page-reference, #ww-page-registry { height: 100%; min-height: 0; overflow-y: auto; }
   @media (max-width: 1080px) {
     .ww-layout { grid-template-columns: minmax(0, 1fr); }
     .ww-side .inspector-panel { position: static; height: auto; max-height: 780px; }
-    .ww-tab-page { grid-template-columns: minmax(0, 1fr); }
-    .ww-tab-page .inspector-panel { position: static; max-height: 780px; }
+    .ww-tab-page { grid-template-columns: minmax(0, 1fr); height: auto; }
+    .ww-tab-page .inspector-panel { position: static; height: auto; max-height: 780px; }
     #ww-page-factions, #ww-page-timeline, #ww-page-alternate, #ww-page-reference, #ww-page-registry { height: auto; overflow: visible; }
   }
 </style>
