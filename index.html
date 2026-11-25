@@ -999,7 +999,9 @@ td.mono-cell {
   .tl-track { cursor: pointer; }
 
   .ww-tab[aria-selected="true"] { background: var(--primary); color: #141122; border-color: var(--primary); }
-  #ww-page-factions, #ww-page-timeline, #ww-page-alternate, #ww-page-reference, #ww-page-registry { height: 100%; min-height: 0; overflow-y: auto; }
+  .ww-page-content { display: flex; flex-direction: column; }
+  .ww-page-content > * { min-height: 0; }
+  .ww-page-content > *:last-child { flex: 1 1 auto; overflow-y: auto; }
   @media (max-width: 1080px) {
     .ww-layout { grid-template-columns: minmax(0, 1fr); }
     .ww-side .inspector-panel { position: static; height: auto; max-height: 780px; }
