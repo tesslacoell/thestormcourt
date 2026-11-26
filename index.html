@@ -5054,7 +5054,11 @@ function renderInspector() {
     ? `<div class="dossier-section">
       <h3 class="dossier-section-title">Portrait</h3>
       <img src="${PORTRAITS[ch.id].img}" alt="${ch.name}" style="width:100%;border-radius:10px;display:block;">
-    </div>`
+    </div>` + (PORTRAITS[ch.id].img2 ? `
+    <div class="dossier-section">
+      <h3 class="dossier-section-title">${PORTRAITS[ch.id].img2label || `Alternate Form`}</h3>
+      <img src="${PORTRAITS[ch.id].img2}" alt="${ch.name}" style="width:100%;border-radius:10px;display:block;">
+    </div>` : ``)
     : ``;
 
   container.innerHTML = `
